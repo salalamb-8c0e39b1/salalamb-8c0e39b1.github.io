@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日大赛yandex - 竞赛数据与作品聚合</title>
+  <meta name="description" content="每日大赛yandex汇聚算法竞赛、创意编程与数据挑战的实时赛况、作品解析和选手评论，适合参赛者与赛事观察者阅读。">
+  <meta name="keywords" content="每日大赛yandex">
+  <style>
+    /* ---------- 全局变量与重置 ---------- */
+    :root {
+      --primary: #1a4d8f;
+      --primary-light: #2e6ab3;
+      --primary-dark: #0e3260;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text-primary: #1a1f2b;
+      --text-secondary: #4a5568;
+      --text-tertiary: #7b8794;
+      --border: #e2e8f0;
+      --radius-card: 16px;
+      --radius-btn: 10px;
+      --radius-tag: 6px;
+      --shadow-default: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --max-width: 1360px;
+      --sticky-offset: 96px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ---------- 吸顶公告条 ---------- */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary-dark);
+      color: #fff;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .announce-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .announce-bar__brand {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .announce-bar__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .announce-bar__date {
+      font-size: 0.75rem;
+      opacity: 0.75;
+    }
+    .announce-bar__dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fbbf24;
+      flex-shrink: 0;
+    }
+
+    /* ---------- 吸顶页头 ---------- */
+    .site-header {
+      position: sticky;
+      top: 36px;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 1.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+    .brand__logo {
+      width: 38px;
+      height: 38px;
+    }
+    .brand__text {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .header-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .header-nav a:hover {
+      color: var(--primary);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px;
+      border-radius: var(--radius-btn);
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 1px;
+      transition: 0.2s;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #eef3fc;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      width: fit-content;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: var(--primary-dark);
+    }
+    .hero__desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn--primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(26, 77, 143, 0.25);
+    }
+    .btn--primary:hover {
+      background: var(--primary-light);
+      box-shadow: 0 6px 16px rgba(26, 77, 143, 0.3);
+      transform: translateY(-1px);
+    }
+    .btn--outline {
+      border: 1.5px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--surface);
+    }
+    .btn--outline:hover {
+      border-color: var(--primary-light);
+      color: var(--primary);
+    }
+    .hero__visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero__visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+    }
+
+    /* ---------- 主布局：三栏门户 ---------- */
+    .main-layout {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: 180px 1fr 240px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* 左频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .channel-sidebar__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+      padding-left: 0.75rem;
+    }
+    .channel-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-btn);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+    .channel-link:hover {
+      background: #eef3fc;
+      color: var(--primary);
+    }
+    .channel-link.is-active {
+      background: var(--primary);
+      color: #fff;
+    }
+    .channel-link__icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* 中主内容 */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      min-width: 0;
+    }
+
+    /* 右辅助栏 */
+    .aux-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .aux-panel {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-default);
+    }
+    .aux-panel__title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .aux-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .aux-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .aux-list__rank {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 5px;
+      background: #eef3fc;
+      color: var(--primary);
+      margin-top: 1px;
+    }
+    .aux-list__rank--top {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ---------- 板块通用样式 ---------- */
+    .section {
+      scroll-margin-top: var(--sticky-offset);
+    }
+    .section__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .section__title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section__title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      border-radius: 2px;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+    .section__sub {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-default);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .card__img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #eef3fc;
+    }
+    .card__body {
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text-primary);
+    }
+    .card__excerpt {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-tag);
+      background: #eef3fc;
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .tag--hot {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+    .tag--new {
+      background: #f0fdf4;
+      color: #16a34a;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    /* 紧凑列表（最新更新） */
+    .update-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .update-item:last-child {
+      border-bottom: none;
+    }
+    .update-item__time {
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      width: 60px;
+      padding-top: 0.15rem;
+    }
+    .update-item__content {
+      flex: 1;
+      min-width: 0;
+    }
+    .update-item__title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+    .update-item__desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .category-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.85rem 0.75rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .category-item:hover {
+      border-color: var(--primary-light);
+      color: var(--primary);
+      background: #f8faff;
+    }
+    .category-item__count {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      font-weight: 400;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow-default);
+    }
+    .deep-dive h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.6rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+    .deep-dive p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 0.8rem;
+    }
+    .deep-dive ul {
+      margin: 0.5rem 0 0.8rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .deep-dive li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .faq-list details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .faq-list details[open] {
+      box-shadow: var(--shadow-default);
+    }
+    .faq-list summary {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-list summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--text-tertiary);
+      font-weight: 400;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+    .faq-list .faq-answer {
+      padding: 0 1rem 0.9rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .comment-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.75rem 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      transition: box-shadow 0.15s;
+    }
+    .comment-item:hover {
+      box-shadow: var(--shadow-default);
+    }
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+    .comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .comment-author {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+    .comment-text {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .news-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 0.85rem 1rem;
+      transition: all 0.15s;
+    }
+    .news-item:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-default);
+    }
+    .news-item__img {
+      width: 100px;
+      height: 70px;
+      border-radius: var(--radius-tag);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #eef3fc;
+    }
+    .news-item__body {
+      flex: 1;
+      min-width: 0;
+    }
+    .news-item__title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+    .news-item__date {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      margin-bottom: 0.2rem;
+    }
+    .news-item__excerpt {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 相关推荐标签索引 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .related-tag {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+    .related-tag:hover {
+      border-color: var(--primary-light);
+      color: var(--primary);
+      background: #f8faff;
+    }
+
+    /* 补充板块：热门榜单 */
+    .rank-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      counter-reset: rank;
+    }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.65rem 0.9rem;
+      transition: all 0.15s;
+    }
+    .rank-item:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-default);
+    }
+    .rank-item__num {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #eef3fc;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .rank-item__num--top {
+      background: var(--primary);
+      color: #fff;
+    }
+    .rank-item__info {
+      flex: 1;
+      min-width: 0;
+    }
+    .rank-item__name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .rank-item__meta {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-brand__name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .footer-brand__desc {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.65);
+      max-width: 320px;
+    }
+    .footer-group h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .footer-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .footer-group a {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.15s;
+    }
+    .footer-group a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 1.5rem auto 0;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.45);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(26, 77, 143, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s;
+      z-index: 90;
+      font-size: 1.1rem;
+    }
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* 移动端菜单遮罩 */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 98;
+    }
+    .menu-overlay.is-open {
+      display: block;
+    }
+
+    /* 搜索框 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0.35rem 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 0.82rem;
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      color: var(--text-primary);
+    }
+    .search-box input::placeholder {
+      color: var(--text-tertiary);
+    }
+    .search-box button {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .search-result {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      margin-top: 0.25rem;
+    }
+
+    /* 筛选状态 */
+    .filter-active .card:not(.is-match) {
+      display: none;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 1fr 220px;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .hero__visual {
+        display: none;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+      .aux-sidebar {
+        display: none;
+      }
+      .header-nav {
+        display: none;
+        position: fixed;
+        top: 96px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-hover);
+        z-index: 97;
+      }
+      .header-nav.is-open {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .announce-bar {
+        font-size: 0.78rem;
+        gap: 1rem;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero {
+        padding: 1.5rem 1rem 1rem;
+      }
+      .main-layout {
+        padding: 0 1rem 2rem;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .news-item {
+        flex-direction: column;
+      }
+      .news-item__img {
+        width: 100%;
+        height: 140px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" id="announceBar">
+    <span class="announce-bar__brand">每日大赛yandex</span>
+    <span class="announce-bar__item">
+      <span class="announce-bar__dot"></span>
+      <span class="announce-bar__date">11月8日</span>
+      <span>「Node.js 高并发挑战赛」作品提交截止</span>
+    </span>
+    <span class="announce-bar__item">
+      <span class="announce-bar__dot"></span>
+      <span class="announce-bar__date">11月7日</span>
+      <span>新增 3 场算法周赛：图论、动态规划、字符串</span>
+    </span>
+    <span class="announce-bar__item">
+      <span class="announce-bar__dot"></span>
+      <span class="announce-bar__date">11月5日</span>
+      <span>「数据可视化创意赛」投票通道开启</span>
+    </span>
+    <span class="announce-bar__item">
+      <span class="announce-bar__dot"></span>
+      <span class="announce-bar__date">11月3日</span>
+      <span>本月累计参赛作品 1,284 件</span>
+    </span>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="每日大赛yandex首页">
+        <svg class="brand__logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#1a4d8f"/>
+          <path d="M10 28L20 8L30 28H24L20 18L16 28H10Z" fill="#fff"/>
+          <circle cx="20" cy="32" r="2.5" fill="#fbbf24"/>
+        </svg>
+        <span class="brand__text">每日大赛yandex</span>
+      </a>
+      <nav class="header-nav" id="headerNav" aria-label="主导航">
+        <a href="/#competition-overview">赛事概览</a>
+        <a href="/#featured-picks">精选推荐</a>
+        <a href="/#latest-updates">最新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#community">用户评论</a>
+        <a href="/#submit">投稿通道</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="headerNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 遮罩 -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="hero__content">
+      <span class="hero__badge">⚡ 11月8日 · 今日 6 场赛事进行中</span>
+      <h1>每日大赛yandex</h1>
+      <p class="hero__desc">
+        汇聚算法竞赛、创意编程与数据挑战的实时赛况、作品解析和选手评论。覆盖图论、动态规划、可视化、高并发等方向，为参赛者与赛事观察者提供可追踪的进度、可对比的作品和可引用的判断。
+      </p>
+      <div class="hero__actions">
+        <a href="/#latest-updates" class="btn btn--primary">查看今日赛况</a>
+        <a href="/#featured-picks" class="btn btn--outline">浏览精选作品</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1a4d8f" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#2e6ab3" stop-opacity="0.04"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="20" width="360" height="280" rx="20" fill="url(#heroGrad)"/>
+        <rect x="60" y="60" width="140" height="10" rx="5" fill="#1a4d8f" opacity="0.6"/>
+        <rect x="60" y="82" width="220" height="8" rx="4" fill="#1a4d8f" opacity="0.25"/>
+        <rect x="60" y="100" width="180" height="8" rx="4" fill="#1a4d8f" opacity="0.25"/>
+        <circle cx="320" cy="90" r="30" fill="#1a4d8f" opacity="0.08"/>
+        <circle cx="320" cy="90" r="18" fill="#1a4d8f" opacity="0.15"/>
+        <circle cx="320" cy="90" r="8" fill="#1a4d8f" opacity="0.3"/>
+        <rect x="60" y="140" width="100" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="80" y="158" width="60" height="6" rx="3" fill="#1a4d8f" opacity="0.3"/>
+        <rect x="80" y="172" width="40" height="6" rx="3" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="80" y="186" width="50" height="6" rx="3" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="180" y="140" width="100" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="200" y="158" width="60" height="6" rx="3" fill="#1a4d8f" opacity="0.3"/>
+        <rect x="200" y="172" width="40" height="6" rx="3" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="200" y="186" width="50" height="6" rx="3" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="300" y="140" width="60" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="312" y="158" width="36" height="6" rx="3" fill="#1a4d8f" opacity="0.3"/>
+        <rect x="312" y="172" width="24" height="6" rx="3" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="60" y="240" width="280" height="36" rx="10" fill="#1a4d8f" opacity="0.08"/>
+        <rect x="80" y="252" width="80" height="12" rx="6" fill="#1a4d8f" opacity="0.25"/>
+        <rect x="180" y="252" width="60" height="12" rx="6" fill="#1a4d8f" opacity="0.15"/>
+        <rect x="260" y="252" width="60" height="12" rx="6" fill="#1a4d8f" opacity="0.15"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 主布局：三栏门户 -->
+  <div class="main-layout">
+
+    <!-- 左频道索引 -->
+    <aside class="channel-sidebar" aria-label="频道索引">
+      <span class="channel-sidebar__title">频道</span>
+      <a href="/#competition-overview" class="channel-link is-active">
+        <span class="channel-link__icon">📋</span> 赛事概览
+      </a>
+      <a href="/#featured-picks" class="channel-link">
+        <span class="channel-link__icon">⭐</span> 精选推荐
+      </a>
+      <a href="/#latest-updates" class="channel-link">
+        <span class="channel-link__icon">🔄</span> 最新动态
+      </a>
+      <a href="/#categories" class="channel-link">
+        <span class="channel-link__icon">📂</span> 分类入口
+      </a>
+      <a href="/#deep-analysis" class="channel-link">
+        <span class="channel-link__icon">🔍</span> 深度解析
+      </a>
+      <a href="/#experience-guide" class="channel-link">
+        <span class="channel-link__icon">🧭</span> 体验指南
+      </a>
+      <a href="/#faq" class="channel-link">
+        <span class="channel-link__icon">❓</span> 常见问答
+      </a>
+      <a href="/#community" class="channel-link">
+        <span class="channel-link__icon">💬</span> 用户评论
+      </a>
+      <a href="/#news" class="channel-link">
+        <span class="channel-link__icon">📰</span> 相关资讯
+      </a>
+      <a href="/#related" class="channel-link">
+        <span class="channel-link__icon">🔗</span> 相关推荐
+      </a>
+      <a href="/#ranking" class="channel-link">
+        <span class="channel-link__icon">🏆</span> 热门榜单
+      </a>
+      <a href="/#submit" class="channel-link">
+        <span class="channel-link__icon">✏️</span> 投稿通道
+      </a>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+
+      <!-- 1. 主题领域概览 -->
+      <section id="competition-overview" class="section">
+        <div class="section__header">
+          <h2 class="section__title">竞赛领域概览</h2>
+        </div>
+        <div class="deep-dive">
+          <p>
+            算法竞赛与创意编程赛事在 2026 年进入高频化阶段。以 11 月第一周为例，仅公开可查的线上赛就有 14 场，覆盖图论、动态规划、字符串处理、数据可视化、高并发系统设计五个主要方向。参赛者构成上，高校学生占 47%，在职开发者占 31%，其余为自由职业者和跨领域爱好者。
+          </p>
+          <p>
+            当前值得关注的具体条目包括：11 月 6 日结束的「Node.js 高并发挑战赛」共有 312 支队伍提交作品，其中 28 件进入复评；「数据可视化创意赛」进入公众投票阶段，得票前三名分别为《城市脉搏》《潮汐图谱》《噪声地图》；11 月 8 日开赛的「图论周赛」已开放注册，目前报名人数 1,047 人，题目方向集中在网络流与最小生成树变体。
+          </p>
+          <p>
+            赛事形态上，个人赛与团队赛比例约为 6:4。团队规模以 2—3 人为主，占团队赛总数的 68%。奖励结构方面，约 55% 的赛事提供现金奖励，前三名奖金中位数为 3,000 元；37% 的赛事以实习机会、云资源额度或硬件设备作为奖励；剩余 8% 为纯积分/荣誉型赛事。
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section id="featured-picks" class="section">
+        <div class="section__header">
+          <h2 class="section__title">精选作品与赛事</h2>
+          <span class="section__sub">11 月 1 日—11 月 8 日</span>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/nodejs-concurrency/400/300" alt="Node.js 高并发挑战赛作品界面截图" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">《EventLoop 守望者》— Node.js 高并发挑战赛</h3>
+              <div class="tag-list">
+                <span class="tag">高并发</span>
+                <span class="tag">Node.js</span>
+                <span class="tag tag--hot">热度 982</span>
+              </div>
+              <p class="card__excerpt">利用 Cluster 模块与 Redis 适配层，在 4 核容器上实现 12,000 QPS 的短链接服务。核心创新是动态 worker 回收策略，降低了 23% 的尾延迟。</p>
+              <div class="card__meta">
+                <span>11月6日提交</span>
+                <span>·</span>
+                <span>312 队参赛</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/city-pulse-viz/400/300" alt="城市脉搏数据可视化作品封面" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">《城市脉搏》— 数据可视化创意赛</h3>
+              <div class="tag-list">
+                <span class="tag">数据可视化</span>
+                <span class="tag">D3.js</span>
+                <span class="tag tag--hot">投票第 1 名</span>
+              </div>
+              <p class="card__excerpt">将 2026 年 10 月上海地铁刷卡数据映射为实时波流动画，早晚高峰呈现明显的潮汐形态。作者在 GitHub 公开了全部数据处理脚本。</p>
+              <div class="card__meta">
+                <span>11月5日上线</span>
+                <span>·</span>
+                <span>1,842 票</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/graph-weekly/400/300" alt="图论周赛题目分布示意图" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">「图论周赛」第 47 期 — 网络流专题</h3>
+              <div class="tag-list">
+                <span class="tag">图论</span>
+                <span class="tag">网络流</span>
+                <span class="tag tag--new">今日开赛</span>
+              </div>
+              <p class="card__excerpt">本期 4 道题，C 题「最大流最小割验证」通过率仅 18.7%，主要卡点在 Dinic 算法的当前弧优化缺失。赛后题解已于 11 月 8 日 10:00 发布。</p>
+              <div class="card__meta">
+                <span>11月8日开赛</span>
+                <span>·</span>
+                <span>1,047 人报名</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/tide-graph/400/300" alt="潮汐图谱可视化作品缩略图" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">《潮汐图谱》— 数据可视化创意赛</h3>
+              <div class="tag-list">
+                <span class="tag">可视化</span>
+                <span class="tag">WebGL</span>
+                <span class="tag">投票第 2 名</span>
+              </div>
+              <p class="card__excerpt">用 Three.js 渲染 2000—2026 年全球潮汐站水位数据，支持时间轴拖拽与站点对比。渲染帧率在移动端稳定 45fps，但数据加载时间偏长。</p>
+              <div class="card__meta">
+                <span>11月4日提交</span>
+                <span>·</span>
+                <span>1,296 票</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/dp-weekly/400/300" alt="动态规划周赛题目列表截图" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">「动态规划周赛」第 39 期 — 区间 DP 专场</h3>
+              <div class="tag-list">
+                <span class="tag">动态规划</span>
+                <span class="tag">区间 DP</span>
+                <span class="tag tag--new">11月9日开赛</span>
+              </div>
+              <p class="card__excerpt">报名人数已达 863 人，题目暂未公开。上期冠军「晨星」在赛后讨论区提到，区间 DP 的难点在于状态定义而非转移方程。</p>
+              <div class="card__meta">
+                <span>11月9日开赛</span>
+                <span>·</span>
+                <span>863 人报名</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card__img" src="https://picsum.photos/seed/noise-map/400/300" alt="噪声地图可视化作品界面" width="400" height="300" loading="lazy">
+            <div class="card__body">
+              <h3 class="card__title">《噪声地图》— 数据可视化创意赛</h3>
+              <div class="tag-list">
+                <span class="tag">可视化</span>
+                <span class="tag">环境数据</span>
+                <span class="tag">投票第 3 名</span>
+              </div>
+              <p class="card__excerpt">基于 2026 年 9 月杭州 37 个监测点的噪声数据，用热力图叠加建筑轮廓呈现夜间噪声分布。评委指出数据采样间隔过大，影响了结论精度。</p>
+              <div class="card__meta">
+                <span>11月3日提交</span>
+                <span>·</span>
+                <span>1,054 票</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 动态 -->
+      <section id="latest-updates" class="section">
+        <div class="section__header">
+          <h2 class="section__title">最新赛况与更新</h2>
+          <span class="section__sub">11月8日当天</span>
+        </div>
+        <ul class="update-list">
+          <li class="update-item">
+            <span class="update-item__time">08:30</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「图论周赛」第 47 期题目公布</div>
+              <div class="update-item__desc">4 道题分别为：基环树直径、费用流模板、最大流最小割验证、平面图转对偶。C 题通过率 18.7%，D 题仅 6.2%。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">10:00</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「Node.js 高并发挑战赛」复评名单出炉</div>
+              <div class="update-item__desc">312 支队伍中 28 件作品进入复评，评委包括 Node.js 核心贡献者李牧和云原生架构师王砚。复评答辩定于 11 月 12 日。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">11:15</span>
+            <div class="update-item__content">
+              <div class="update-item__title">数据可视化创意赛投票数突破 5,000</div>
+              <div class="update-item__desc">截至 11:15，总投票数 5,218，前三名票数差距缩小至 146 票。投票将于 11 月 10 日 23:59 截止。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">13:40</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「字符串处理月赛」开放报名</div>
+              <div class="update-item__desc">11 月 15 日开赛，设置 6 道题，覆盖后缀自动机、回文树、AC 自动机。报名费 0 元，前 50 名提交有效答案者可获纪念徽章。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">15:20</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「动态规划周赛」第 39 期题面预览发布</div>
+              <div class="update-item__desc">官方放出第一题「石子合并变体」的样例数据，社区讨论集中在环形区间 DP 的破环方式。正式题目 11 月 9 日 09:00 公布。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">16:50</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「算法新星赛」公布 10 月月度榜单</div>
+              <div class="update-item__desc">积分榜第一为「午夜蓝」，10 月参加 6 场赛事，累计积分 2,840。第二、三名分别为「KMP 不自动」和「滚动数组」。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">18:00</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「图论周赛」第 47 期赛后题解上线</div>
+              <div class="update-item__desc">题解详细说明了 C 题的最大流建模方式，并附 Dinic 当前弧优化的完整代码。讨论区已有 47 条跟帖。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">19:30</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「数据可视化创意赛」评委点评发布</div>
+              <div class="update-item__desc">评委陈屿指出《城市脉搏》在数据颗粒度上表现突出，但动画性能在低端设备上仍需优化。完整点评共 2,300 字。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">20:45</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「Node.js 高并发挑战赛」复评答辩顺序抽签完成</div>
+              <div class="update-item__desc">28 支队伍按抽签顺序分为 4 组，答辩时间各 15 分钟。抽签结果已通过邮件发送至各队联系人。</div>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-item__time">21:10</span>
+            <div class="update-item__content">
+              <div class="update-item__title">「图论周赛」第 48 期预告</div>
+              <div class="update-item__desc">11 月 15 日开赛，主题为「二分图匹配与匈牙利算法」，预计 4 道题。报名通道将在 11 月 10 日 12:00 开启。</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section id="categories" class="section">
+        <div class="section__header">
+          <h2 class="section__title">竞赛分类入口</h2>
+        </div>
+        <div class="category-grid">
+          <a href="/#featured-picks" class="category-item">
+            <span>算法周赛</span>
+            <span class="category-item__count">本期 47 场</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>数据可视化赛</span>
+            <span class="category-item__count">12 件作品</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>高并发系统赛</span>
+            <span class="category-item__count">28 件复评</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>动态规划专场</span>
+            <span class="category-item__count">863 人报名</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>字符串处理月赛</span>
+            <span class="category-item__count">11月15日</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>创意编程挑战</span>
+            <span class="category-item__count">9 件作品</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>图论专题赛</span>
+            <span class="category-item__count">1,047 人</span>
+          </a>
+          <a href="/#featured-picks" class="category-item">
+            <span>算法新星积分赛</span>
+            <span class="category-item__count">月度榜单</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section id="deep-analysis" class="section">
+        <div class="section__header">
+          <h2 class="section__title">高并发赛与算法赛的评判逻辑差异</h2>
+        </div>
+        <div class="deep-dive">
+          <h3>一、评分维度：从「通过用例数」到「系统吞吐与尾延迟」</h3>
+          <p>
+            算法竞赛的评判标准相对单一：在时限内通过全部测试用例即可得分。以「图论周赛」第 47 期为例，C 题「最大流最小割验证」的通过率是 18.7%，未通过者的失分原因集中在 Dinic 算法缺少当前弧优化导致超时，这是一个典型的「正确性 + 复杂度」二元判定。
+          </p>
+          <p>
+            高并发系统赛则呈现多维评分。以 11 月 6 日截止的「Node.js 高并发挑战赛」为例，评分表包含四个权重项：吞吐量（40%）、尾延迟 P99（30%）、代码可读性（15%）、故障恢复演示（15%）。获得复评第一名的《EventLoop 守望者》在吞吐量上得分 92/100，但代码可读性仅 71/100，原因是动态 worker 回收策略的注释覆盖率不足 30%。评委李牧在复评说明中写道：「性能数字漂亮，但交接成本高。」
+          </p>
+
+          <h3>二、赛题设计：固定输入与开放环境的差异</h3>
+          <p>
+            算法赛题通常给出明确的输入输出格式和测试数据范围。选手在本地通过样例后再提交到评测机。这套流程的优点是自动化程度高，缺点是赛题一旦泄露，补题成本很高。11 月 9 日即将开赛的「动态规划周赛」第 39 期，官方提前放出了第一题的样例数据，但正式题目尚未公布，社区讨论集中在环形区间 DP 的破环方式，这种「题面预览」是近两年才出现的赛前互动方式。
+          </p>
+          <p>
+            高并发赛的赛题环境是开放的：选手自行搭建服务，自行选择压测工具，提交的是可运行的系统镜像。这导致评判时需要考虑硬件基准。本次「Node.js 高并发挑战赛」统一使用 4 核 8GB 容器，网络带宽限制在 100Mbps。选手王砚的提交材料中附带了详细的压测报告，包括 wrk 参数、预热时间和三次取中值的说明，这种透明度在复评中获得了额外加分。
+          </p>
+
+          <h3>三、赛后生态：题解文化与复盘报告的对比</h3>
+          <p>
+            算法赛的赛后生态以题解为核心。第 47 期图论周赛的题解在比赛结束后 2 小时内发布，阅读量在 24 小时内达到 3,200 次。题解质量直接影响下一期的报名人数——上期题解被社区评价为「跳步严重」后，第 48 期的报名增速较上期下降了 11%。
+          </p>
+          <p>
+            高并发赛的赛后产出则是复盘报告。28 支复评队伍中有 19 支在 11 月 8 日当天公开了各自的架构决策记录，平均长度 1,400 字。其中《EventLoop 守望者》团队记录了三次架构迭代：从单进程到 Cluster，再到引入 Redis 适配层，每次迭代都附带了压测数据对比。这种「决策日志」形式的复盘，正在成为系统性赛事的标准产出。
+          </p>
+
+          <h3>四、对参赛者的选择建议</h3>
+          <ul>
+            <li><strong>算法赛适合单点突破：</strong>如果你在某一类问题上（如网络流、区间 DP）有明确优势，算法赛的得分反馈更直接。11 月 8 日图论周赛的 C 题通过者中，67% 的人在赛后讨论区表示「刷过 30 道以上网络流题」。</li>
+            <li><strong>系统赛适合展示工程全貌：</strong>高并发赛的评分维度多，容错空间也大。即使吞吐量不是最高，故障恢复演示做得好也能拉回分数。本次复评中排名第 14 的队伍，吞吐量仅排第 22，但故障恢复项拿了满分，最终名次提升了 8 位。</li>
+            <li><strong>关注评委背景：</strong>本次高并发赛评委李牧是 Node.js 核心贡献者，他在点评中多次提到「交接成本」和「可观测性」，这两个关键词直接影响了复评排名。赛前查阅评委的公开演讲或代码仓库，能帮助判断权重倾向。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 / 消费路径 -->
+      <section id="experience-guide" class="section">
+        <div class="section__header">
+          <h2 class="section__title">赛事内容消费路径</h2>
+        </div>
+        <div class="deep-dive">
+          <p>
+            观看一场竞赛的内容，顺序不同，收获差异很大。以 11 月 8 日图论周赛为例，如果先看题解再看题目，容易产生「我会了」的错觉；反过来先读题再对照题解，卡壳的位置才是真实的学习点。
+          </p>
+          <p>
+            具体建议按以下顺序推进：
+          </p>
+          <ul>
+            <li><strong>先读题面，不看通过率。</strong>通过率是群体结果，不是个人判断依据。第 47 期 C 题通过率 18.7%，但题目本身并不超纲，失分集中在实现细节。先自己做 20 分钟，再去看题解，能准确定位差距。</li>
+            <li><strong>对比两份以上题解。</strong>第 47 期题解至少有三个版本：官方版、选手「晨星」的博客版、以及讨论区的零散补充。官方版侧重正确性，晨星版补充了 Dinic 当前弧优化的实测对比，讨论区则有人指出 D 题的平面图转对偶存在边界情况遗漏。三份合起来看，信息才完整。</li>
+            <li><strong>系统赛先看复盘报告，再看排行榜。</strong>排行榜只告诉你结果，复盘报告告诉你过程。《EventLoop 守望者》的复盘记录了三次架构迭代的压测数据，这些数字比最终名次更有参考价值。如果时间有限，优先读排名 5—15 的复盘，这一区间的队伍往往尝试了多种方案，记录更详细。</li>
+            <li><strong>数据可视化赛先看作品，再看评委点评。</strong>作品本身传递信息，点评提供判断框架。本次评委陈屿对《城市脉搏》的点评中，特意区分了「数据颗粒度」和「视觉表现力」两个维度，前者是数据质量，后者是渲染技巧。分开看，才能判断一件作品的长板在哪。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq" class="section">
+        <div class="section__header">
+          <h2 class="section__title">常见问答</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>图论周赛第 47 期 C 题通过率为什么只有 18.7%？</summary>
+            <div class="faq-answer">主要卡点在 Dinic 算法的实现细节。题目要求处理 5,000 个节点、20,000 条边的网络流，标准 Dinic 在未加当前弧优化时，最坏情况会退化到 O(V²E)。18.7% 的通过者中，87% 在代码中显式实现了当前弧优化，其余 13% 使用了 ISAP 算法。未通过者最常见的错误是忽略反向边的容量更新顺序。</div>
+          </details>
+          <details>
+            <summary>Node.js 高并发挑战赛的评分权重具体怎么分配？</summary>
+            <div class="faq-answer">吞吐量占 40%，尾延迟 P99 占 30%，代码可读性占 15%，故障恢复演示占 15%。代码可读性的评判标准包括注释覆盖率、模块划分清晰度和交接文档完整度。本次复评中，可读性得分最高的队伍（88/100）在架构决策记录中附带了每个模块的输入输出示例。</div>
+          </details>
+          <details>
+            <summary>数据可视化创意赛的投票结果什么时候公布？</summary>
+            <div class="faq-answer">投票通道于 11 月 5 日开启，11 月 10 日 23:59 关闭。最终排名由公众投票（占 70%）和评委打分（占 30%）共同决定，结果预计在 11 月 11 日 18:00 前公布。截至 11 月 8 日 11:15，总投票数 5,218，前三名票数差距在 146 票以内。</div>
+          </details>
+          <details>
+            <summary>动态规划周赛第 39 期的题目范围是什么？</summary>
+            <div class="faq-answer">主题是区间 DP，共 6 道题。第一题「石子合并变体」涉及环形区间破环，第二题是「括号匹配计数」的变体，后四题暂未公开。官方在 11 月 8 日放出了第一题的样例数据，完整的题目说明将在 11 月 9 日 09:00 发布。报名人数已达 863 人。</div>
+          </details>
+          <details>
+            <summary>算法新星积分赛的排名规则是怎样的？</summary>
+            <div class="faq-answer">每月根据参赛场次和名次累计积分。冠军积 500 分，亚军 300 分，季军 200 分，第 4—10 名各 100 分，完赛但未进前 10 得 20 分。10 月积分榜第一「午夜蓝」参加 6 场赛事，获得 2 个冠军、2 个亚军、1 个季军，累计 2,840 分。积分每月 1 日重置，年度总积分前 10 名进入年终总决赛。</div>
+          </details>
+          <details>
+            <summary>创意编程挑战赛接受什么样的作品？</summary>
+            <div class="faq-answer">接受以代码为核心媒介的交互作品，包括生成艺术、数据驱动的视觉化、浏览器内的实时渲染、以及基于传感器的物理交互装置。本次挑战赛的 9 件作品中，4 件基于 p5.js，3 件基于 Three.js，2 件使用了 Web Audio API。作品需在提交时附上不少于 200 字的技术说明和可运行的在线演示链接。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section id="community" class="section">
+        <div class="section__header">
+          <h2 class="section__title">用户评论</h2>
+          <span class="section__sub">来自赛事讨论区与作品留言</span>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item">
+            <div class="comment-avatar">晨</div>
+            <div class="comment-body">
+              <div class="comment-author">晨星</div>
+              <div class="comment-text">第 47 期 C 题我死在当前弧优化上，赛后看了题解才发现少了一行代码。通过率 18.7% 真不冤，这题就是考实现细节。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">K</div>
+            <div class="comment-body">
+              <div class="comment-author">KMP不自动</div>
+              <div class="comment-text">《城市脉搏》那个动画确实好看，但我用旧手机打开卡得不行，帧率估计不到 20。视觉满分，性能扣分。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">午</div>
+            <div class="comment-body">
+              <div class="comment-author">午夜蓝</div>
+              <div class="comment-text">10 月跑了 6 场，拿了 2840 分。积分规则对参赛频率要求太高了，少跑一场基本就掉出前五。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">滚</div>
+            <div class="comment-body">
+              <div class="comment-author">滚动数组</div>
+              <div class="comment-text">动态规划周赛第 39 期报名了，希望别再出环形区间 DP 的变种了，上次石子合并卡了我两个小时。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">E</div>
+            <div class="comment-body">
+              <div class="comment-author">EventLoop侠</div>
+              <div class="comment-text">《EventLoop 守望者》的复盘报告写得真细，三次架构迭代的压测数据都贴出来了。比排行榜有用多了。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">潮</div>
+            <div class="comment-body">
+              <div class="comment-author">潮汐观测者</div>
+              <div class="comment-text">《潮汐图谱》数据加载慢的问题作者在 GitHub issue 里回应了，说下次会用 Web Worker 分片加载。态度可以。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">李</div>
+            <div class="comment-body">
+              <div class="comment-author">李牧的粉丝</div>
+              <div class="comment-text">评委李牧那句「交接成本高」说得太准了。很多高并发方案性能牛逼，但换个人维护直接抓瞎。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">噪</div>
+            <div class="comment-body">
+              <div class="comment-author">噪声收集者</div>
+              <div class="comment-text">《噪声地图》的采样间隔确实太大了，37 个点摊到杭州整个城区，插值出来的热力图说服力有限。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">今</div>
+            <div class="comment-body">
+              <div class="comment-author">今天不想刷题</div>
+              <div class="comment-text">图论周赛第 48 期又是二分图匹配，匈牙利算法快背吐了。能不能来点 SAP 或者 HLPP 的题。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">数</div>
+            <div class="comment-body">
+              <div class="comment-author">数据搬运工</div>
+              <div class="comment-text">创意编程赛那个用 Web Audio API 的作品有人看过吗？交互挺有意思，就是说明文档写得有点简略。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">字</div>
+            <div class="comment-body">
+              <div class="comment-author">字符串恐惧症</div>
+              <div class="comment-text">11 月 15 日的字符串月赛，后缀自动机我从来没能独立写出来过，这次准备先看两天模板再去报名。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">路</div>
+            <div class="comment-body">
+              <div class="comment-author">路人甲</div>
+              <div class="comment-text">赛事有点密集了，一周四五场，根本追不过来。而且题目难度参差不齐，有的周赛比月赛还难。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">小</div>
+            <div class="comment-body">
+              <div class="comment-author">小码农</div>
+              <div class="comment-text">Node.js 高并发赛的 4 核限制有点紧，实际生产环境通常至少 8 核。不过统一硬件基准确实更公平。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">D</div>
+            <div class="comment-body">
+              <div class="comment-author">Dinic本D</div>
+              <div class="comment-text">第 47 期 D 题平面图转对偶的边界情况，讨论区有人提了但官方题解没写进去，希望补一下。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">可</div>
+            <div class="comment-body">
+              <div class="comment-author">可观测性优先</div>
+              <div class="comment-text">系统赛的故障恢复演示环节最有意思，能看到各种奇怪的容灾设计。上次有个队伍直接拔网线演示，全场鼓掌。</div>
+            </div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-avatar">签</div>
+            <div class="comment-body">
+              <div class="comment-author">签到选手</div>
+              <div class="comment-text">只求每场签到拿 20 分，月度榜单前 10 是不敢想的。不过积分规则对非职业选手还算友好。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section id="news" class="section">
+        <div class="section__header">
+          <h2 class="section__title">相关资讯</h2>
+        </div>
+        <div class="news-list">
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-nodejs/600/400" alt="Node.js 高并发挑战赛复评现场" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">Node.js 高并发挑战赛 28 支队伍进入复评，答辩定于 11 月 12 日</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">复评答辩顺序抽签已于 11 月 8 日 20:45 完成，28 支队伍分为 4 组，每组答辩 15 分钟。评委李牧、王砚将参与全部 4 组评审。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-viz/600/400" alt="数据可视化创意赛投票页面" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">数据可视化创意赛投票数突破 5,000，《城市脉搏》暂列第一</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">截至 11 月 8 日 11:15，总投票数 5,218。《城市脉搏》以 1,842 票居首，《潮汐图谱》1,296 票位列第二，差距缩小至 146 票。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-graph/600/400" alt="图论周赛题目界面" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">图论周赛第 47 期 C 题通过率 18.7%，赛后题解已发布</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">C 题「最大流最小割验证」失分集中在 Dinic 算法缺少当前弧优化。官方题解于 18:00 上线，附完整优化代码和复杂度分析。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-string/600/400" alt="字符串处理月赛报名页面" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">字符串处理月赛 11 月 15 日开赛，前 50 名可获纪念徽章</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">设置 6 道题，覆盖后缀自动机、回文树、AC 自动机。报名费 0 元，11 月 8 日 13:40 开放报名，目前已有 214 人注册。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-dp/600/400" alt="动态规划周赛题面预览" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">动态规划周赛第 39 期放出题面预览，环形区间 DP 成讨论热点</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">官方发布第一题「石子合并变体」的样例数据，社区讨论集中在破环方式。正式题目 11 月 9 日 09:00 公布，已有 863 人报名。</div>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-item__img" src="https://picsum.photos/seed/news-star/600/400" alt="算法新星积分赛榜单" width="600" height="400" loading="lazy">
+            <div class="news-item__body">
+              <div class="news-item__title">算法新星赛 10 月榜单公布，「午夜蓝」以 2,840 分登顶</div>
+              <div class="news-item__date">2026-11-08</div>
+              <div class="news-item__excerpt">「午夜蓝」10 月参加 6 场赛事，获 2 冠 2 亚 1 季。第二名「KMP 不自动」积 2,560 分，第三名「滚动数组」积 2,180 分。</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section id="related" class="section">
+        <div class="section__header">
+          <h2 class="section__title">相关推荐</h2>
+        </div>
+        <div class="related-tags">
+          <a href="/#featured-picks" class="related-tag">Dinic 算法模板</a>
+          <a href="/#featured-picks" class="related-tag">环形区间 DP 破环技巧</a>
+          <a href="/#featured-picks" class="related-tag">Node.js Cluster 压测方案</a>
+          <a href="/#featured-picks" class="related-tag">D3.js 地铁数据可视化</a>
+          <a href="/#featured-picks" class="related-tag">后缀自动机入门题单</a>
+          <a href="/#featured-picks" class="related-tag">高并发系统故障恢复案例</a>
+          <a href="/#featured-picks" class="related-tag">WebGL 潮汐数据渲染</a>
+          <a href="/#featured-picks" class="related-tag">算法新星积分赛规则</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section id="ranking" class="section">
+        <div class="section__header">
+          <h2 class="section__title">热门榜单</h2>
+          <span class="section__sub">11 月第一周热度排行</span>
+        </div>
+        <ul class="rank-list">
+          <li class="rank-item">
+            <span class="rank-item__num rank-item__num--top">1</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">《EventLoop 守望者》— Node.js 高并发挑战赛</div>
+              <div class="rank-item__meta">讨论 156 条 · 复评第 1 名</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num rank-item__num--top">2</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">《城市脉搏》— 数据可视化创意赛</div>
+              <div class="rank-item__meta">讨论 98 条 · 投票第 1 名</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num rank-item__num--top">3</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">「图论周赛」第 47 期 C 题</div>
+              <div class="rank-item__meta">题解阅读 3,200 次 · 通过率 18.7%</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num">4</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">《潮汐图谱》— 数据可视化创意赛</div>
+              <div class="rank-item__meta">讨论 72 条 · 投票第 2 名</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num">5</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">「动态规划周赛」第 39 期题面预览</div>
+              <div class="rank-item__meta">讨论 61 条 · 863 人报名</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num">6</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">「字符串处理月赛」报名通道</div>
+              <div class="rank-item__meta">讨论 44 条 · 214 人注册</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num">7</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">《噪声地图》— 数据可视化创意赛</div>
+              <div class="rank-item__meta">讨论 38 条 · 投票第 3 名</div>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-item__num">8</span>
+            <div class="rank-item__info">
+              <div class="rank-item__name">算法新星赛 10 月榜单</div>
+              <div class="rank-item__meta">讨论 29 条 · 2,840 分登顶</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 投稿通道 -->
+      <section id="submit" class="section">
+        <div class="section__header">
+          <h2 class="section__title">投稿与交流</h2>
+        </div>
+        <div class="deep-dive" style="display:flex; flex-direction:column; gap:0.75rem;">
+          <p>如果你在近期赛事中有作品或题解想要分享，可以通过以下方式参与：</p>
+          <ul>
+            <li><strong>作品投稿：</strong>提交作品名称、赛事来源、技术栈和 200 字以内说明，审核通过后会在「精选推荐」展示。本期已有 12 件作品通过审核。</li>
+            <li><strong>题解投稿：</strong>算法赛题解需包含思路说明、复杂度分析和完整可运行代码。图论周赛第 47 期题解征集中，截止 11 月 10 日。</li>
+            <li><strong>赛事组织：</strong>如果你正在筹备线上赛，可以提交赛事信息，通过审核后会在「最新动态」和「热门榜单」同步露出。</li>
+          </ul>
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索作品、题解或赛事……" aria-label="搜索内容">
+            <button type="button" id="searchBtn">筛选</button>
+          </div>
+          <div class="search-result" id="searchResult" aria-live="polite"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右辅助栏 -->
+    <aside class="aux-sidebar" aria-label="辅助信息">
+      <div class="aux-panel">
+        <div class="aux-panel__title">🔥 热门作品</div>
+        <ul class="aux-list">
+          <li><span class="aux-list__rank aux-list__rank--top">1</span> EventLoop 守望者</li>
+          <li><span class="aux-list__rank aux-list__rank--top">2</span> 城市脉搏</li>
+          <li><span class="aux-list__rank aux-list__rank--top">3</span> 潮汐图谱</li>
+          <li><span class="aux-list__rank">4</span> 噪声地图</li>
+          <li><span class="aux-list__rank">5</span> 石子合并变体题解</li>
+        </ul>
+      </div>
+      <div class="aux-panel">
+        <div class="aux-panel__title">📅 近期赛程</div>
+        <ul class="aux-list">
+          <li><span class="aux-list__rank">9日</span> 动态规划周赛第 39 期</li>
+          <li><span class="aux-list__rank">10日</span> 可视化赛投票截止</li>
+          <li><span class="aux-list__rank">12日</span> 高并发赛复评答辩</li>
+          <li><span class="aux-list__rank">15日</span> 字符串处理月赛</li>
+          <li><span class="aux-list__rank">15日</span> 图论周赛第 48 期</li>
+        </ul>
+      </div>
+      <div class="aux-panel">
+        <div class="aux-panel__title">📊 今日数据</div>
+        <ul class="aux-list">
+          <li>进行中赛事：6 场</li>
+          <li>今日提交作品：47 件</li>
+          <li>新增报名：213 人</li>
+          <li>题解发布：3 篇</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-brand__name">每日大赛yandex</span>
+        <p class="footer-brand__desc">
+          覆盖 2026 年 10 月至 11 月的算法竞赛、创意编程与高并发系统赛。每日更新赛况、题解、作品复盘和选手评论，记录从报名到答辩的完整过程。更新节奏为每工作日 2 次、周末 1 次。
+        </p>
+      </div>
+      <div class="footer-group">
+        <h4>赛事</h4>
+        <ul>
+          <li><a href="/#competition-overview">赛事概览</a></li>
+          <li><a href="/#latest-updates">最新动态</a></li>
+          <li><a href="/#ranking">热门榜单</a></li>
+          <li><a href="/#categories">分类入口</a></li>
+        </ul>
+      </div>
+      <div class="footer-group">
+        <h4>内容</h4>
+        <ul>
+          <li><a href="/#featured-picks">精选推荐</a></li>
+          <li><a href="/#deep-analysis">深度解析</a></li>
+          <li><a href="/#experience-guide">体验指南</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+        </ul>
+      </div>
+      <div class="footer-group">
+        <h4>互动</h4>
+        <ul>
+          <li><a href="/#community">用户评论</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#submit">投稿通道</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 每日大赛yandex · 内容聚合示例页面</span>
+      <span>页面更新时间：2026 年 11 月 8 日 21:30</span>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "每日大赛yandex",
+    "description": "汇聚算法竞赛、创意编程与数据挑战的实时赛况、作品解析和选手评论，适合参赛者与赛事观察者阅读。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "图论周赛第 47 期 C 题通过率为什么只有 18.7%？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "主要卡点在 Dinic 算法的实现细节。题目要求处理 5,000 个节点、20,000 条边的网络流，标准 Dinic 在未加当前弧优化时，最坏情况会退化到 O(V²E)。18.7% 的通过者中，87% 在代码中显式实现了当前弧优化，其余 13% 使用了 ISAP 算法。未通过者最常见的错误是忽略反向边的容量更新顺序。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Node.js 高并发挑战赛的评分权重具体怎么分配？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "吞吐量占 40%，尾延迟 P99 占 30%，代码可读性占 15%，故障恢复演示占 15%。代码可读性的评判标准包括注释覆盖率、模块划分清晰度和交接文档完整度。本次复评中，可读性得分最高的队伍（88/100）在架构决策记录中附带了每个模块的输入输出示例。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "数据可视化创意赛的投票结果什么时候公布？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "投票通道于 11 月 5 日开启，11 月 10 日 23:59 关闭。最终排名由公众投票（占 70%）和评委打分（占 30%）共同决定，结果预计在 11 月 11 日 18:00 前公布。截至 11 月 8 日 11:15，总投票数 5,218，前三名票数差距在 146 票以内。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "动态规划周赛第 39 期的题目范围是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "主题是区间 DP，共 6 道题。第一题「石子合并变体」涉及环形区间破环，第二题是「括号匹配计数」的变体，后四题暂未公开。官方在 11 月 8 日放出了第一题的样例数据，完整的题目说明将在 11 月 9 日 09:00 发布。报名人数已达 863 人。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "算法新星积分赛的排名规则是怎样的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "每月根据参赛场次和名次累计积分。冠军积 500 分，亚军 300 分，季军 200 分，第 4—10 名各 100 分，完赛但未进前 10 得 20 分。10 月积分榜第一「午夜蓝」参加 6 场赛事，获得 2 个冠军、2 个亚军、1 个季军，累计 2,840 分。积分每月 1 日重置，年度总积分前 10 名进入年终总决赛。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "创意编程挑战赛接受什么样的作品？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "接受以代码为核心媒介的交互作品，包括生成艺术、数据驱动的视觉化、浏览器内的实时渲染、以及基于传感器的物理交互装置。本次挑战赛的 9 件作品中，4 件基于 p5.js，3 件基于 Three.js，2 件使用了 Web Audio API。作品需在提交时附上不少于 200 字的技术说明和可运行的在线演示链接。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 交互脚本 -->
+  <script>
+    (function() {
+      'use strict';
+
+      // 移动端菜单
+      const hamburger = document.getElementById('hamburgerBtn');
+      const headerNav = document.getElementById('headerNav');
+      const overlay = document.getElementById('menuOverlay');
+
+      function closeMenu() {
+        headerNav.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+
+      function openMenu() {
+        headerNav.classList.add('is-open');
+        overlay.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (headerNav.classList.contains('is-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      overlay.addEventListener('click', closeMenu);
+
+      headerNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && headerNav.classList.contains('is-open')) {
+          closeMenu();
+          hamburger.focus();
+        }
+      });
+
+      // 回到顶部
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          backToTop.classList.add('is-visible');
+        } else {
+          backToTop.classList.remove('is-visible');
+        }
+      });
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索筛选
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const searchResult = document.getElementById('searchResult');
+      const featuredSection = document.getElementById('featured-picks');
+      const cards = featuredSection ? featuredSection.querySelectorAll('.card') : [];
+
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+          cards.forEach(function(card) { card.style.display = ''; });
+          searchResult.textContent = '';
+          return;
+        }
+        let matchCount = 0;
+        cards.forEach(function(card) {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = '';
+            matchCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        if (matchCount === 0) {
+          searchResult.textContent = '没有找到匹配的作品，试试其他关键词。';
+        } else {
+          searchResult.textContent = '找到 ' + matchCount + ' 件相关作品。';
+        }
+      }
+
+      if (searchBtn) {
+        searchBtn.addEventListener('click', performSearch);
+      }
+      if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch();
+          }
+        });
+      }
+
+      // 频道导航高亮
+      const channelLinks = document.querySelectorAll('.channel-link');
+      const sections = document.querySelectorAll('.section');
+      const observerOptions = { rootMargin: '-120px 0px -60% 0px' };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            channelLinks.forEach(function(link) {
+              link.classList.remove('is-active');
+              if (link.getAttribute('href') === '/#' + id) {
+                link.classList.add('is-active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(function(section) {
+        if (section.id) observer.observe(section);
+      });
+
+    })();
+  </script>
+</body>
+  </html>

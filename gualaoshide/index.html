@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瓜老师的笔记海角连载 - 连载笔记与海角故事聚合</title>
+  <meta name="description" content="瓜老师的笔记海角连载汇集连载笔记、海角故事与人物档案等具体内容，涵盖第15章更新、角色线索引、专题解析和读者评论，适合追更读者与故事考据爱好者浏览。">
+  <meta name="keywords" content="瓜老师的笔记海角连载">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f2a3d'/%3E%3Cpath d='M9 12h14v2H9zm0 5h14v2H9zm0 5h9v2H9z' fill='%23f0b429'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%23e85d4a'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand: #0f2a3d;
+      --brand-light: #1e3e54;
+      --brand-deep: #091e2b;
+      --accent: #e85d4a;
+      --accent-soft: #fcede9;
+      --gold: #f0b429;
+      --gold-soft: #fdf6e3;
+      --bg: #f5f2ec;
+      --surface: #ffffff;
+      --text-primary: #1b2a33;
+      --text-secondary: #4f5e66;
+      --text-tertiary: #7c8b93;
+      --border: #e2ddd4;
+      --border-light: #ede8df;
+      --radius-card: 16px;
+      --radius-btn: 10px;
+      --radius-tag: 6px;
+      --radius-banner: 12px;
+      --shadow-default: 0 2px 8px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+      --shadow-hover: 0 6px 20px rgba(15,42,61,0.10), 0 2px 8px rgba(0,0,0,0.05);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-serif: Georgia, "Noto Serif SC", "Songti SC", serif;
+      --header-height: 108px;
+      --sticky-offset: 108px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* 吸顶公告条 */
+    .topbar {
+      background: var(--brand-deep);
+      color: #e8e3da;
+      font-size: 13px;
+      padding: 0 24px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .topbar-brand {
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    .topbar-items {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .topbar-date {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .topbar-highlight {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* 吸顶页头 */
+    .header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 40px;
+      z-index: 99;
+      gap: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-graphic {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brand);
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--gold-soft);
+      color: var(--brand);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .search-toggle {
+      display: none;
+      font-size: 20px;
+      color: var(--text-secondary);
+      padding: 6px;
+      border-radius: var(--radius-btn);
+    }
+
+    .search-box-header {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 4px 12px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-header:focus-within {
+      border-color: var(--gold);
+    }
+
+    .search-box-header input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      width: 140px;
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .search-box-header button {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      padding: 2px;
+    }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 55%, #234a61 100%);
+      color: #fff;
+      overflow: hidden;
+      padding: 60px 24px 64px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,180,41,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 30%;
+      bottom: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,93,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      flex: 1 1 55%;
+      min-width: 0;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(240,180,41,0.12);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .hero-desc {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--brand-deep);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: var(--radius-btn);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #f7c94a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(240,180,41,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: var(--radius-btn);
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-visual {
+      flex: 1 1 40%;
+      min-width: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-svg {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+    }
+
+    /* 主布局容器 */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 178px minmax(0, 1fr) 248px;
+      gap: 28px;
+      align-items: start;
+      padding: 32px 0 48px;
+    }
+
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      max-height: calc(100vh - var(--sticky-offset));
+      overflow-y: auto;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+    }
+
+    .channel-sidebar h2 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      padding-left: 8px;
+    }
+
+    .channel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius-tag);
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      transition: background 0.18s, color 0.18s;
+      line-height: 1.4;
+    }
+
+    .channel-list a:hover,
+    .channel-list a:focus-visible,
+    .channel-list a.active {
+      background: var(--gold-soft);
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .channel-list a .ch-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: background 0.18s;
+    }
+
+    .channel-list a:hover .ch-dot,
+    .channel-list a.active .ch-dot {
+      background: var(--gold);
+    }
+
+    /* 中间主栏 */
+    .main-col {
+      min-width: 0;
+    }
+
+    /* 右侧辅助栏 */
+    .aux-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      max-height: calc(100vh - var(--sticky-offset));
+      overflow-y: auto;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+    }
+
+    .aux-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-light);
+    }
+
+    .aux-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: var(--brand);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .aux-card h3 .accent-bar {
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .hot-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hot-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .hot-rank {
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      min-width: 18px;
+      padding-top: 1px;
+    }
+
+    .hot-rank.top3 {
+      color: var(--accent);
+    }
+
+    .hot-list a:hover {
+      color: var(--brand);
+    }
+
+    .update-feed {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .update-feed li {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .update-feed li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .update-time {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--brand);
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+    }
+
+    .section-header .sub-note {
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+    }
+
+    .section-header .view-all {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* 概览 */
+    .overview-text {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .overview-text p {
+      margin-bottom: 14px;
+    }
+
+    .overview-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .overview-text strong {
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: box-shadow 0.22s, transform 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: var(--bg);
+    }
+
+    .card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-type {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--brand);
+      background: var(--gold-soft);
+      padding: 2px 10px;
+      border-radius: var(--radius-tag);
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--text-tertiary);
+    }
+
+    .card-meta .tag {
+      background: var(--bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .card-meta .hot {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* 紧凑列表 */
+    .list-compact {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+
+    .list-compact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      transition: background 0.15s;
+    }
+
+    .list-compact-item:last-child {
+      border-bottom: none;
+    }
+
+    .list-compact-item:hover {
+      background: #fdfcf9;
+    }
+
+    .list-index {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      min-width: 22px;
+      padding-top: 2px;
+    }
+
+    .list-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .list-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+
+    .list-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .list-date {
+      font-size: 11.5px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 16px 14px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      box-shadow: var(--shadow-default);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .category-card:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .cat-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .cat-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    .cat-count {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 28px 28px 24px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+    }
+
+    .deep-dive h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brand-light);
+      margin: 24px 0 10px;
+      line-height: 1.4;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .deep-dive ul {
+      margin: 8px 0 16px 20px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .deep-dive li {
+      margin-bottom: 4px;
+    }
+
+    .deep-dive strong {
+      color: var(--brand);
+    }
+
+    .compare-panel {
+      background: var(--bg);
+      border-radius: var(--radius-banner);
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-left: 3px solid var(--gold);
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .compare-panel strong {
+      color: var(--brand);
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 18px;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 20px 22px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 36px;
+      font-family: var(--font-serif);
+    }
+
+    .step-body h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+
+    .step-body p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-list details {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+
+    .faq-list summary {
+      padding: 16px 20px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-list summary:hover {
+      background: #fdfcf9;
+    }
+
+    .faq-list summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--text-tertiary);
+      font-weight: 400;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    /* 评论 */
+    .comments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .comment-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .comment-nick {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comment-text {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .comment-weak {
+      opacity: 0.75;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      align-items: flex-start;
+      transition: background 0.15s;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-item:hover {
+      background: #fdfcf9;
+    }
+
+    .news-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      min-width: 76px;
+      padding-top: 2px;
+      font-weight: 500;
+    }
+
+    .news-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* 相关推荐标签索引 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      font-size: 13px;
+      padding: 7px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      box-shadow: var(--shadow-default);
+    }
+
+    .tag-pill:hover {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      color: var(--brand);
+      font-weight: 500;
+    }
+
+    /* 补充板块：时间线 */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 24px 24px 24px 40px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-default);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: var(--border-light);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--border-light);
+    }
+
+    .timeline-date {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .timeline-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: var(--brand-deep);
+      color: rgba(255,255,255,0.65);
+      padding: 48px 24px 32px;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo .logo-text {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      max-width: 360px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-col a {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s, visibility 0.25s, transform 0.2s;
+      z-index: 90;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      background: var(--brand-light);
+    }
+
+    /* 移动端菜单 */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 22px;
+      color: var(--brand);
+      padding: 6px;
+      border-radius: var(--radius-btn);
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 150;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .mobile-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .three-col {
+        grid-template-columns: 1fr 240px;
+        gap: 24px;
+      }
+
+      .channel-sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        grid-column: 1 / -1;
+        display: none;
+      }
+
+      .channel-sidebar.mobile-open {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background: var(--surface);
+        z-index: 200;
+        padding: 80px 20px 20px;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+        overflow-y: auto;
+        max-height: 100vh;
+      }
+
+      .aux-sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-inner {
+        gap: 32px;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .search-box-header {
+        display: none;
+      }
+
+      .search-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .topbar {
+        font-size: 11px;
+        padding: 0 16px;
+        height: 36px;
+      }
+
+      .topbar-items {
+        gap: 14px;
+      }
+
+      .topbar-items .topbar-item:nth-child(2) {
+        display: none;
+      }
+
+      .header {
+        height: 60px;
+        padding: 0 16px;
+        top: 36px;
+      }
+
+      :root {
+        --sticky-offset: 96px;
+        --header-height: 96px;
+      }
+
+      .logo-text {
+        font-size: 15px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 40px 16px 44px;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero-desc {
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .hero-svg {
+        max-width: 240px;
+      }
+
+      .three-col {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 20px 0 32px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+
+      .section-header h2 {
+        font-size: 19px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .news-item {
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px 16px;
+      }
+
+      .news-date {
+        min-width: 0;
+      }
+
+      .list-compact-item {
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px 16px;
+      }
+
+      .list-date {
+        padding-top: 0;
+      }
+
+      .guide-step {
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .step-num {
+        font-size: 22px;
+        min-width: 28px;
+      }
+
+      .deep-dive {
+        padding: 20px 16px;
+      }
+
+      .footer {
+        padding: 32px 16px 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-links {
+        gap: 24px;
+      }
+
+      .back-to-top {
+        bottom: 18px;
+        right: 18px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .timeline {
+        padding: 18px 16px 18px 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 搜索无结果反馈 */
+    .no-result-msg {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-tertiary);
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px dashed var(--border);
+      margin-top: 12px;
+    }
+
+    .no-result-msg.show {
+      display: block;
+    }
+
+    .search-highlight {
+      background: var(--gold-soft);
+      outline: 1px solid var(--gold);
+      border-radius: 4px;
+    }
+
+    /* 焦点可见 */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    /* 首屏轻量动画 */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-svg .float-obj {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-svg .float-obj {
+        animation: none;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="topbar" role="banner">
+    <span class="topbar-brand">瓜老师的笔记海角连载</span>
+    <div class="topbar-items">
+      <span class="topbar-item">
+        <span class="topbar-date">11月7日</span>
+        <span class="topbar-highlight">第15章《雾港来信》更新</span>
+      </span>
+      <span class="topbar-item">
+        <span class="topbar-date">11月6日</span>
+        <span class="topbar-highlight">角色档案「阿川」新增3条线索</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="header">
+    <div class="logo-area">
+      <svg class="logo-graphic" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="36" height="36" rx="9" fill="#0f2a3d"/>
+        <path d="M10 13h16v2H10zm0 5h16v2H10zm0 5h10v2H10z" fill="#f0b429"/>
+        <circle cx="27" cy="24" r="3.5" fill="#e85d4a"/>
+        <path d="M27 21v6M24 24h6" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">瓜老师的笔记海角连载</span>
+    </div>
+
+    <nav class="nav-links" aria-label="主题导航">
+      <a href="/#overview">连载概览</a>
+      <a href="/#featured">精选笔记</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#categories">分类索引</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">阅读路径</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">读者评论</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box-header">
+        <input type="search" id="siteSearch" placeholder="搜索笔记、角色或章节…" aria-label="搜索站内内容">
+        <button type="button" aria-label="搜索" id="searchBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开频道菜单" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- 移动端遮罩 -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-kicker">连载笔记 · 海角故事</span>
+        <h1>瓜老师的笔记海角连载</h1>
+        <p class="hero-desc">
+          汇集雾港、灯塔、旧码头三条故事线的连载笔记与人物档案，包含每章更新、角色线索、场景考据和读者讨论。第15章《雾港来信》已收录，适合追更读者与细节考据爱好者。
+        </p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn-primary">翻阅精选笔记</a>
+          <a href="/#updates" class="btn-outline">查看更新动态</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg class="hero-svg" viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海角与笔记本的抽象构图">
+          <rect x="10" y="10" width="340" height="260" rx="20" fill="rgba(255,255,255,0.04)"/>
+          <rect x="24" y="24" width="140" height="190" rx="10" fill="#f0b429" opacity="0.9"/>
+          <rect x="36" y="40" width="116" height="6" rx="3" fill="#0f2a3d" opacity="0.5"/>
+          <rect x="36" y="56" width="90" height="6" rx="3" fill="#0f2a3d" opacity="0.35"/>
+          <rect x="36" y="72" width="106" height="6" rx="3" fill="#0f2a3d" opacity="0.35"/>
+          <rect x="36" y="94" width="70" height="6" rx="3" fill="#0f2a3d" opacity="0.25"/>
+          <rect x="36" y="110" width="100" height="6" rx="3" fill="#0f2a3d" opacity="0.25"/>
+          <rect x="36" y="138" width="54" height="20" rx="6" fill="#e85d4a"/>
+          <path d="M200 180 Q230 130 280 150 Q320 170 330 210" stroke="#e85d4a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M200 200 Q240 160 290 180 Q325 195 335 230" stroke="#f0b429" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="290" cy="96" r="32" fill="none" stroke="#f0b429" stroke-width="2" stroke-dasharray="5 5" opacity="0.5"/>
+          <circle cx="290" cy="96" r="14" fill="#e85d4a" opacity="0.8"/>
+          <circle cx="290" cy="96" r="5" fill="#fff"/>
+          <g class="float-obj">
+            <rect x="240" y="48" width="62" height="30" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <text x="271" y="67" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10" font-family="sans-serif">第15章</text>
+          </g>
+          <rect x="196" y="228" width="120" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+          <rect x="196" y="238" width="80" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区：三栏布局 -->
+  <main class="container">
+    <div class="three-col">
+
+      <!-- 左侧频道索引 -->
+      <aside class="channel-sidebar" id="channelSidebar" aria-label="频道索引">
+        <h2>频道索引</h2>
+        <ul class="channel-list">
+          <li><a href="/#overview" class="active"><span class="ch-dot"></span>连载概览</a></li>
+          <li><a href="/#featured"><span class="ch-dot"></span>精选笔记</a></li>
+          <li><a href="/#updates"><span class="ch-dot"></span>更新动态</a></li>
+          <li><a href="/#categories"><span class="ch-dot"></span>分类索引</a></li>
+          <li><a href="/#deep-dive"><span class="ch-dot"></span>深度解析</a></li>
+          <li><a href="/#guide"><span class="ch-dot"></span>阅读路径</a></li>
+          <li><a href="/#faq"><span class="ch-dot"></span>常见问答</a></li>
+          <li><a href="/#comments"><span class="ch-dot"></span>读者评论</a></li>
+          <li><a href="/#news"><span class="ch-dot"></span>相关资讯</a></li>
+          <li><a href="/#recommend"><span class="ch-dot"></span>相关推荐</a></li>
+          <li><a href="/#timeline"><span class="ch-dot"></span>章节时间线</a></li>
+          <li><a href="/#contribute"><span class="ch-dot"></span>投稿与交流</a></li>
+        </ul>
+      </aside>
+
+      <!-- 中间主栏 -->
+      <div class="main-col">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-header">
+            <h2>海角笔记与连载故事的方向</h2>
+          </div>
+          <div class="overview-text">
+            <p><strong>“海角连载”</strong>沿着雾港、灯塔、旧码头三条地理线展开，笔记形态包含逐章正文、角色档案、场景手记和作者附言。目前主线更新至第15章《雾港来信》，围绕一封1987年的旧信引出了港口调度员阿川与灯塔守夜人老纪的交叉时间线。</p>
+            <p>读者常搜索的方向集中在几个具体词上：<strong>雾港地图细节、阿川身世线索、第14章船票的含义、老纪的航海日志摘录</strong>。这些内容分散在章节正文和笔记附录里，需要按线索归拢。近期讨论热度较高的是第13章出现的“蓝色浮标”与第15章信件邮戳日期对不上的问题，考据帖提供了三种解读路径。</p>
+            <p>连载的叙事节奏偏慢，单章有效信息常藏在场景描写和对话间隙里。追更读者习惯在每章更新后翻看角色档案是否同步增补，目前档案页已收录阿川23条、老纪17条、码头调度室6条。场景手记累计41篇，覆盖雾港东堤、西灯塔、旧仓库区等具体地点。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured">
+          <div class="section-header">
+            <h2>近期值得翻的笔记与章节</h2>
+            <span class="sub-note">按更新与讨论热度整理</span>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/wugang15/400/300" width="400" height="300" loading="lazy" alt="雾港码头与信件的场景示意">
+              <div class="card-body">
+                <span class="card-type">主线章节</span>
+                <h3 class="card-title">第15章《雾港来信》</h3>
+                <p class="card-desc">一封1987年寄出的信在2026年才被分拣到旧码头信箱。信中提到的“三号锚地”与第8章地图标注存在出入，阿川的身世线索由此收束到两个方向。</p>
+                <div class="card-meta">
+                  <span class="tag">阿川</span>
+                  <span class="tag">旧信件</span>
+                  <span class="hot">热度 9.2</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/dengha14/400/300" width="400" height="300" loading="lazy" alt="灯塔与航海日志的意象图">
+              <div class="card-body">
+                <span class="card-type">角色档案</span>
+                <h3 class="card-title">老纪的航海日志（第9—14章摘录）</h3>
+                <p class="card-desc">从日志里摘出12条与主线相关的记录，其中9月18日“能见度不足百米”与第12章码头停航的描写对得上，但11月2日那条关于“蓝灯”的记录尚无正文呼应。</p>
+                <div class="card-meta">
+                  <span class="tag">老纪</span>
+                  <span class="tag">航海日志</span>
+                  <span class="hot">热度 8.7</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/fubiao13/400/300" width="400" height="300" loading="lazy" alt="海面蓝色浮标的示意图">
+              <div class="card-body">
+                <span class="card-type">场景手记</span>
+                <h3 class="card-title">蓝色浮标的三次出现</h3>
+                <p class="card-desc">第6章西堤外侧、第10章夜航段落、第13章阿川的回忆里各出现一次。颜色描述从“褪色的蓝”到“新刷的漆”有变化，考据帖据此推断浮标被更换过。</p>
+                <div class="card-meta">
+                  <span class="tag">雾港地图</span>
+                  <span class="tag">线索考据</span>
+                  <span class="hot">热度 8.4</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/chuanpiao14/400/300" width="400" height="300" loading="lazy" alt="旧船票与票据的细节图">
+              <div class="card-body">
+                <span class="card-type">细节解读</span>
+                <h3 class="card-title">第14章那张船票的日期问题</h3>
+                <p class="card-desc">票面印着“9月31日”，现实中不存在这个日期。三种解释里，“印刷错误”和“故意留白”各有支持者，笔记附录列出了各解释需要满足的正文条件。</p>
+                <div class="card-meta">
+                  <span class="tag">船票</span>
+                  <span class="tag">时间线</span>
+                  <span class="hot">热度 8.1</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/ac23/400/300" width="400" height="300" loading="lazy" alt="人物档案卡片的示意图">
+              <div class="card-body">
+                <span class="card-type">角色档案</span>
+                <h3 class="card-title">阿川档案：新增的3条线索</h3>
+                <p class="card-desc">11月6日更新了阿川在旧码头调度室的入职记录、与“周叔”的通话摘要、以及一张1990年代的工作证。工作证照片背景里的船名与第15章信件落款有关联。</p>
+                <div class="card-meta">
+                  <span class="tag">阿川</span>
+                  <span class="tag">人物关系</span>
+                  <span class="hot">热度 8.9</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/zhoukan11/400/300" width="400" height="300" loading="lazy" alt="周叔角色相关的码头场景">
+              <div class="card-body">
+                <span class="card-type">配角笔记</span>
+                <h3 class="card-title">周叔在第11章的两次出场</h3>
+                <p class="card-desc">第一次在调度室交代船期，第二次在码头小卖部买烟。两场戏的天气描写差异被读者逐句比对，认为第二次出现时“雨刚停”暗示时间线有跳跃。</p>
+                <div class="card-meta">
+                  <span class="tag">周叔</span>
+                  <span class="tag">配角线</span>
+                  <span class="hot">热度 7.6</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 / 动态 -->
+        <section class="section" id="updates">
+          <div class="section-header">
+            <h2>最近30天更新动态</h2>
+            <span class="sub-note">截至11月8日</span>
+          </div>
+          <div class="list-compact">
+            <div class="list-compact-item">
+              <span class="list-index">01</span>
+              <div class="list-content">
+                <div class="list-title">第15章《雾港来信》正文上线</div>
+                <div class="list-summary">更新于11月7日，正文约4200字，附作者按语一段，提及“三号锚地”的写法参照了旧港务局档案。</div>
+              </div>
+              <span class="list-date">11月7日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">02</span>
+              <div class="list-content">
+                <div class="list-title">阿川角色档案新增3条</div>
+                <div class="list-summary">11月6日增补入职记录、通话摘要、工作证条目，档案总数从20条升至23条。</div>
+              </div>
+              <span class="list-date">11月6日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">03</span>
+              <div class="list-content">
+                <div class="list-title">场景手记「西灯塔内部结构」修订</div>
+                <div class="list-summary">11月4日更新，补充了第7章提到的螺旋楼梯与储物间位置，修正了此前关于瞭望窗朝向的表述。</div>
+              </div>
+              <span class="list-date">11月4日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">04</span>
+              <div class="list-content">
+                <div class="list-title">读者考据帖：船票日期讨论汇总</div>
+                <div class="list-summary">11月3日由用户“锚地观测员”整理，汇总了6种解读并逐条标注正文依据，其中2种被作者在评论区点赞。</div>
+              </div>
+              <span class="list-date">11月3日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">05</span>
+              <div class="list-content">
+                <div class="list-title">第14章《夜航》配图说明更新</div>
+                <div class="list-summary">11月1日补充了章节头图的绘制来源，确认参考了雾港气象站1987年9月的能见度记录。</div>
+              </div>
+              <span class="list-date">11月1日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">06</span>
+              <div class="list-content">
+                <div class="list-title">老纪航海日志摘录新增第14章条目</div>
+                <div class="list-summary">10月29日更新，新增“11月2日，蓝灯亮，未记录”一条，与正文时间线存在15天的间隔待解。</div>
+              </div>
+              <span class="list-date">10月29日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">07</span>
+              <div class="list-content">
+                <div class="list-title">投稿区收到「雾港东堤测绘图」</div>
+                <div class="list-summary">10月27日读者“堤岸散步者”上传手绘测绘图，标注了第5章、第9章提到的三个仓库位置，经核对与正文一致。</div>
+              </div>
+              <span class="list-date">10月27日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">08</span>
+              <div class="list-content">
+                <div class="list-title">第13章「蓝色浮标」段落修订</div>
+                <div class="list-summary">10月24日微调了浮标颜色描述，从“深蓝”改为“褪色的蓝”，与第6章形成前后变化关系。</div>
+              </div>
+              <span class="list-date">10月24日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">09</span>
+              <div class="list-content">
+                <div class="list-title">作者回复：关于“周叔”出场频率</div>
+                <div class="list-summary">10月22日评论区回复，说明周叔在第11章的两次出场是刻意安排，后续章节会有对应解释。</div>
+              </div>
+              <span class="list-date">10月22日</span>
+            </div>
+            <div class="list-compact-item">
+              <span class="list-index">10</span>
+              <div class="list-content">
+                <div class="list-title">新读者导读页更新</div>
+                <div class="list-summary">10月20日调整了三条故事线的推荐阅读顺序，新增“从第8章地图开始”的路径选项。</div>
+              </div>
+              <span class="list-date">10月20日</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="categories">
+          <div class="section-header">
+            <h2>按类型找笔记</h2>
+          </div>
+          <div class="category-grid">
+            <a href="/#featured" class="category-card">
+              <span class="cat-icon">📖</span>
+              <span class="cat-name">主线章节</span>
+              <span class="cat-count">15章</span>
+            </a>
+            <a href="/#featured" class="category-card">
+              <span class="cat-icon">👤</span>
+              <span class="cat-name">角色档案</span>
+              <span class="cat-count">46条</span>
+            </a>
+            <a href="/#featured" class="category-card">
+              <span class="cat-icon">🗺️</span>
+              <span class="cat-name">场景手记</span>
+              <span class="cat-count">41篇</span>
+            </a>
+            <a href="/#deep-dive" class="category-card">
+              <span class="cat-icon">🔍</span>
+              <span class="cat-name">细节考据</span>
+              <span class="cat-count">28帖</span>
+            </a>
+            <a href="/#updates" class="category-card">
+              <span class="cat-icon">📝</span>
+              <span class="cat-name">作者附言</span>
+              <span class="cat-count">12则</span>
+            </a>
+            <a href="/#timeline" class="category-card">
+              <span class="cat-icon">⏳</span>
+              <span class="cat-name">时间线梳理</span>
+              <span class="cat-count">7版</span>
+            </a>
+            <a href="/#guide" class="category-card">
+              <span class="cat-icon">🧭</span>
+              <span class="cat-name">新读者导读</span>
+              <span class="cat-count">3条路径</span>
+            </a>
+            <a href="/#contribute" class="category-card">
+              <span class="cat-icon">✍️</span>
+              <span class="cat-name">读者投稿</span>
+              <span class="cat-count">19篇</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="section" id="deep-dive">
+          <div class="deep-dive">
+            <h2>三条故事线如何在同一片海角上交叉</h2>
+            <p>雾港、灯塔、旧码头被读者当成三个独立场景来追，但第15章《雾港来信》把三条线收到了同一封信上。信里提到的“三号锚地”既出现在第8章的港区地图，也在老纪第9章日志的边角被涂改过。场景手记第22篇记录过锚地编号的变更：1987年之前三号锚地是现在的五号泊位，1987年之后才改到东堤外侧。这个时间节点与信件邮戳的年份一致。</p>
+
+            <h3>雾港线的地图细节与锚地编号</h3>
+            <p>第8章给出的港区地图上，三号锚地用虚线标在东堤外侧，而第15章信件里描述的位置更靠近西堤。航海日志第9章9月18日条目写着“西堤外，能见度不足百米，三号锚地不可见”。如果把“不可见”理解为锚地本身不存在，那信里说的位置就需要另一套解释。考据帖“锚地观测员”统计了全文中出现“锚地”的11处位置，其中有7处与地图标注一致，4处存在偏移。偏移的4处都集中在1987年前后的时间描述里。</p>
+            <div class="compare-panel">
+              <strong>可核对的结构：</strong>正文中“锚地”出现11次，其中7次与第8章地图一致，4次偏移均发生在1987年时间节点前后。偏移的4处分别位于第9章日志、第11章周叔对话、第13章阿川回忆、第15章信件。
+            </div>
+
+            <h3>角色交叉：阿川与老纪各自的信源</h3>
+            <p>阿川的信息来源是调度室档案和工作证，老纪的信息来源是航海日志和灯塔值班记录。两条线在第10章夜航段落第一次交汇：阿川调度夜航船，老纪在灯塔记录同一时段的光照情况。两段描写里都出现了“蓝灯”，但阿川看到的是远处船只的信号灯，老纪记录的是自己灯塔的备用灯。同一个词指向两个不同对象，这是第10章之后讨论量最大的分歧点之一。</p>
+            <ul>
+              <li>阿川线：入职记录、工作证、调度室通话摘要 -> 指向旧码头的组织关系</li>
+              <li>老纪线：航海日志、值班记录、灯塔设备清单 -> 指向西灯塔的日常运行</li>
+              <li>交叉点：第10章夜航、第15章信件、第13章浮标回忆</li>
+            </ul>
+
+            <h3>蓝色浮标的颜色变化说明了什么</h3>
+            <p>第6章“褪色的蓝”、第10章“几乎看不见”、第13章“新刷的漆”。三次出现跨越了至少一个时间跳跃。场景手记第35篇对比了灯塔设备清单里的油漆领用记录，1987年9月领用蓝色油漆两桶，1988年3月领用一桶。如果第13章浮标是“新刷的漆”，那这一段的时间至少要在1988年3月之后。阿川的入职记录日期是1990年，第13章的回忆发生在入职之前还是之后，正文没有明确交代，这构成了目前时间线梳理中最需要补全的一环。</p>
+
+            <h3>船票日期“9月31日”的三种解释</h3>
+            <p>第14章船票上的日期是“9月31日”。第一种解释是印刷错误，旧式船票偶有日期误印；第二种解释是作者故意留白，暗示时间线本身有不可靠之处；第三种解释是“9月31日”另有所指，比如某个内部代号。三种解释各自需要满足不同的正文条件：第一种需要找到同批次船票的实物或记录，第二种需要后续章节出现时间线反转，第三种需要在前文找到“9月31日”作为代号的用法。目前前两种各有3条以上的正文支持，第三种只有1条间接线索。</p>
+          </div>
+        </section>
+
+        <!-- 6. 体验指南 / 消费路径 -->
+        <section class="section" id="guide">
+          <div class="section-header">
+            <h2>第一次追更的阅读顺序</h2>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <span class="step-num">1</span>
+              <div class="step-body">
+                <h3>先读第8章的地图段落</h3>
+                <p>第8章正文里那两页港区描述是后面所有空间线索的底图。锚地编号、仓库位置、灯塔朝向都在这里第一次出现。先看这两页，再翻后面的章节，很多“对不上”的地方会变成“对得上但需要调整顺序”。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">2</span>
+              <div class="step-body">
+                <h3>对照角色档案读第9—12章</h3>
+                <p>这四章里阿川和老纪的出场是交替的。边读边翻档案页，看阿川的入职记录日期和老纪日志日期，两条时间线在档案里是分开列的，正文里却是混在一起的。先分后合，比顺着读省力。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">3</span>
+              <div class="step-body">
+                <h3>第13章和第15章连着看</h3>
+                <p>第13章的浮标回忆和第15章的信件在时间上相隔好几年，但两段文字里都出现了“蓝色”和“旧码头”。连着读能看出颜色变化和地点偏移的对应关系。如果中间隔了其他章节，这个对应容易被忽略。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">4</span>
+              <div class="step-body">
+                <h3>判断一条考据帖值不值得跟</h3>
+                <p>看它有没有列出具体章节号和原文引句。只有结论没有引文的，先放一边。列出引文但引文和章节对不上的，多半是记错了。两条都满足的，再看它有没有区分“正文写到的”和“读者推测的”——混在一起写的帖子，参考价值打对折。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="section-header">
+            <h2>追更中常问的几个问题</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>第15章信件邮戳日期和正文时间对不上，是写错了吗？</summary>
+              <div class="faq-answer">
+                邮戳日期是1987年9月28日，正文里分拣到信件的日期是2026年10月30日。中间近40年的间隔在故事里没有直接解释。场景手记第22篇提到过旧码头信箱在1990年代停用过一段时间，如果信件是在停用期间被压在旧箱底，时间跨度就有了解释空间。目前这属于读者推测，正文尚未确认。
+              </div>
+            </details>
+            <details>
+              <summary>老纪日志里“蓝灯”到底指的是什么灯？</summary>
+              <div class="faq-answer">
+                第10章正文里，老纪记录的是灯塔备用灯，阿川看到的是远处船只信号灯。两个“蓝灯”在同一个章节里出现，但位置和用途不同。第14章灯塔设备清单里列了备用灯的颜色是蓝色，船用信号灯的颜色在正文里没有单独说明。所以老纪的“蓝灯”大概率是灯塔备用灯，阿川看到的那个需要另找依据。
+              </div>
+            </details>
+            <details>
+              <summary>周叔在第11章出现两次，是同一个人吗？</summary>
+              <div class="faq-answer">
+                两次出场的地点和穿着有差异：调度室那次穿深色工装，小卖部那次穿浅灰外套。正文没有明确说是同一个人，但两次都被称为“周叔”，且都和阿川有对话。作者10月22日在评论区回复过，说这两次出场是刻意安排，后续会有对应解释。目前可以确定的是作者知道这个安排，但具体是同一个人还是两个人，正文还没给答案。
+              </div>
+            </details>
+            <details>
+              <summary>船票上的“9月31日”有没有可能只是印刷错误？</summary>
+              <div class="faq-answer">
+                有这个可能。旧式船票确实出现过日期误印的情况，但正文没有提供同批次船票的实物或记录来佐证。如果把“9月31日”当成印刷错误，那第14章的时间线就不需要特殊解释；如果不当印刷错误，就需要解释为什么作者要安排一个不存在的日期。两种读法都能在正文里找到一些支持，目前没有定论。
+              </div>
+            </details>
+            <details>
+              <summary>阿川的工作证背景里的船名，在第15章出现过吗？</summary>
+              <div class="faq-answer">
+                出现过。第15章信件落款处有一行小字，拼出来和船名一致。工作证是11月6日新增的档案条目，照片背景里的船名在第15章正文里能找到对应。这条线索把阿川的入职时间和信件的寄出时间关联了起来，但关联的具体含义正文还没展开。
+              </div>
+            </details>
+            <details>
+              <summary>三条故事线是按什么顺序更新的？</summary>
+              <div class="faq-answer">
+                从第1章到第15章，主线章节基本按雾港—灯塔—旧码头的顺序轮流推进，但不是严格轮换。第6章到第10章雾港线占的比重更大，第11章到第13章灯塔线比重上升，第14章和第15章又回到旧码头。场景手记和角色档案的更新不跟章节同步，有时会提前放出后续章节会用到的小条目。
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="comments">
+          <div class="section-header">
+            <h2>读者评论摘录</h2>
+            <span class="sub-note">节选，昵称已处理</span>
+          </div>
+          <div class="comments-grid">
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">锚</span>
+                <span class="comment-nick">锚地观测员</span>
+              </div>
+              <div class="comment-text">第15章那封信的邮戳我盯了半天，1987年9月28日，跟第8章地图上的锚地编号变更就差了几个月。作者不可能随手写这个日期，后面肯定要圆。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">灯</span>
+                <span class="comment-nick">灯塔下面风大</span>
+              </div>
+              <div class="comment-text">老纪的日志越看越像工作周报，哈哈，不过9月18日那条“不可见”写得挺妙的。能见度不足百米，锚地不可见，但没说锚地不存在。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">堤</span>
+                <span class="comment-nick">堤岸散步者</span>
+              </div>
+              <div class="comment-text">第13章浮标的颜色从褪色的蓝变成新刷的漆，中间隔了多少年？按油漆领用记录推至少要一年半。阿川那时候到底在不在旧码头，正文一直绕。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">票</span>
+                <span class="comment-nick">旧船票收藏夹</span>
+              </div>
+              <div class="comment-text">9月31日这个日期我倾向于故意留白。作者前面写过旧式船票的印刷水平参差不齐，但专门挑一个不存在的日期，太刻意了。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">周</span>
+                <span class="comment-nick">周叔今天买烟了吗</span>
+              </div>
+              <div class="comment-text">第11章两次出场，一次工装一次便服，我刚开始以为是两个人。后来翻作者回复说“刻意安排”，那到底是同一个人换了衣服还是两个人，这算什么回答。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">川</span>
+                <span class="comment-nick">阿川的工位</span>
+              </div>
+              <div class="comment-text">工作证背景里那艘船，我放大看了好久，船名和信里落款对得上。但入职记录日期和信寄出日期差了三年，这三年阿川在哪，档案里没写。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">雾</span>
+                <span class="comment-nick">雾港气象站</span>
+              </div>
+              <div class="comment-text">第14章头图用了气象站1987年9月的能见度记录，这个细节挺用心。不过9月18日那天记录的是“不足百米”，第14章正文写的是“三百米左右”，不知道是不是我看漏了。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">仓</span>
+                <span class="comment-nick">旧仓库看门人</span>
+              </div>
+              <div class="comment-text">第5章那个仓库位置和手绘测绘图能对上，但第9章多出来的那个门手绘图上没标。投稿的人是不是只画了正文明确提到的部分？</div>
+            </div>
+            <div class="comment-card comment-weak">
+              <div class="comment-header">
+                <span class="comment-avatar">海</span>
+                <span class="comment-nick">海角吹风</span>
+              </div>
+              <div class="comment-text">更新节奏还可以，两周左右一章，比追剧舒服。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">日</span>
+                <span class="comment-nick">日志翻页器</span>
+              </div>
+              <div class="comment-text">老纪11月2日那条“蓝灯亮，未记录”就一行字，后面跟了五个点的省略号。这比写一大段还让人在意，未记录是什么意思，记了没记上还是故意不写？</div>
+            </div>
+            <div class="comment-card comment-weak">
+              <div class="comment-header">
+                <span class="comment-avatar">路</span>
+                <span class="comment-nick">路过看看</span>
+              </div>
+              <div class="comment-text">文字风格挺冷的，像海风。有些章节慢得我跳过好几段，回头又得补。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">索</span>
+                <span class="comment-nick">线索收集癖</span>
+              </div>
+              <div class="comment-text">考据帖里“锚地观测员”那篇质量高，每条都标了章节和原文。另一篇只列结论的，翻了三章没找到出处，直接关了。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">三</span>
+                <span class="comment-nick">三号锚地</span>
+              </div>
+              <div class="comment-text">第15章信里写的位置更靠西堤，但第8章地图上三号锚地在东堤外侧。我倾向于信里写的是老地名，1987年之前那个位置才叫三号锚地。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">导</span>
+                <span class="comment-nick">新来的读者</span>
+              </div>
+              <div class="comment-text">按导读页先看了第8章地图，再翻第15章，确实顺很多。但第11章周叔那两段还是没看明白，可能得回头再翻第5章。</div>
+            </div>
+            <div class="comment-card comment-weak">
+              <div class="comment-header">
+                <span class="comment-avatar">周</span>
+                <span class="comment-nick">周末补觉</span>
+              </div>
+              <div class="comment-text">熬夜看到两点，第二天上班困死。这故事适合周末白天看，晚上看总觉得雾港的雾从屏幕里溢出来。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-header">
+                <span class="comment-avatar">清</span>
+                <span class="comment-nick">清单式阅读</span>
+              </div>
+              <div class="comment-text">我列了个表，把每章出现的日期和地点标出来，第13章那个浮标回忆的日期是唯一没有年份的。作者写“那年”的时候可能自己也没想好放在哪年。</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-header">
+            <h2>海角连载相关资讯</h2>
+          </div>
+          <div class="news-list">
+            <div class="news-item">
+              <span class="news-date">11月7日</span>
+              <div>
+                <div class="news-title">第15章《雾港来信》更新，信件邮戳日期引发考据讨论</div>
+                <div class="news-summary">正文发布两小时内，评论区出现11条关于1987年邮戳与2026年分拣日期的时间差讨论，其中3条附了章节原文截图。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">11月6日</span>
+              <div>
+                <div class="news-title">阿川角色档案新增工作证条目，船名与信件落款对应</div>
+                <div class="news-summary">档案页更新3条，工作证照片背景中的船名与第15章信件落款一致，档案总数升至23条。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">11月4日</span>
+              <div>
+                <div class="news-title">西灯塔内部结构手记修订，瞭望窗朝向更正</div>
+                <div class="news-summary">修订版补充了螺旋楼梯与储物间的相对位置，瞭望窗朝向从“朝东”改为“朝东南”，与第7章正文的“东南风”描述对齐。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">11月3日</span>
+              <div>
+                <div class="news-title">读者整理船票日期六种解读，两种获作者点赞</div>
+                <div class="news-summary">考据帖汇总6种解读并逐条标注正文依据，作者在评论区对“印刷错误”和“时间线留白”两种解读点了赞。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月29日</span>
+              <div>
+                <div class="news-title">老纪航海日志新增11月2日条目，与第14章时间线间隔15天</div>
+                <div class="news-summary">日志摘录新增一条“蓝灯亮，未记录”，与第14章夜航段落的日期相差15天，这个间隔目前没有正文解释。</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <span class="news-date">10月24日</span>
+              <div>
+                <div class="news-title">第13章浮标颜色描述微调，与第6章形成前后变化</div>
+                <div class="news-summary">“深蓝”改为“褪色的蓝”，与第6章西堤外侧浮标的颜色描述形成呼应，第13章“新刷的漆”未改动。</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="recommend">
+          <div class="section-header">
+            <h2>相关推荐</h2>
+          </div>
+          <div class="tag-cloud">
+            <a href="/#featured" class="tag-pill">雾港地图细节考</a>
+            <a href="/#featured" class="tag-pill">阿川入职记录梳理</a>
+            <a href="/#featured" class="tag-pill">老纪日志中的天气记录</a>
+            <a href="/#deep-dive" class="tag-pill">三号锚地编号变更</a>
+            <a href="/#guide" class="tag-pill">从第8章开始读的路径</a>
+            <a href="/#timeline" class="tag-pill">1987—1990时间线对照</a>
+            <a href="/#comments" class="tag-pill">船票日期讨论汇总</a>
+            <a href="/#contribute" class="tag-pill">手绘雾港东堤测绘图</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：时间线 -->
+        <section class="section" id="timeline">
+          <div class="section-header">
+            <h2>关键日期时间线</h2>
+            <span class="sub-note">按故事内时间整理</span>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">1987年9月18日</div>
+              <div class="timeline-title">老纪日志记录“西堤外，能见度不足百米”</div>
+              <div class="timeline-desc">三号锚地在日志中被提及“不可见”，与第8章地图标注的位置存在偏移。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1987年9月28日</div>
+              <div class="timeline-title">第15章信件邮戳日期</div>
+              <div class="timeline-desc">信件寄出日期，收件地址是旧码头三号信箱，该信箱在1990年代停用。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1988年3月</div>
+              <div class="timeline-title">灯塔设备清单记录蓝色油漆领用一桶</div>
+              <div class="timeline-desc">这是判断第13章“新刷的漆”时间下限的依据之一，场景手记第35篇有对应记录。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1990年</div>
+              <div class="timeline-title">阿川旧码头调度室入职</div>
+              <div class="timeline-desc">角色档案中的入职记录日期，工作证照片背景船名与第15章信件落款一致。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026年10月30日</div>
+              <div class="timeline-title">信件在旧码头信箱被分拣</div>
+              <div class="timeline-desc">第15章正文开篇场景，分拣日期与邮戳日期相隔近40年，正文未直接解释。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026年11月7日</div>
+              <div class="timeline-title">第15章《雾港来信》更新</div>
+              <div class="timeline-desc">正文约4200字，附作者按语一段，提及“三号锚地”写法参照旧港务局档案。</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 投稿与交流 -->
+        <section class="section" id="contribute">
+          <div class="section-header">
+            <h2>投稿与交流</h2>
+          </div>
+          <div class="overview-text">
+            <p><strong>读者投稿区</strong>目前收录了19篇内容，包括手绘地图、章节时间线梳理、角色关系图和小段考据。10月27日上传的“雾港东堤测绘图”标注了第5章、第9章提到的三个仓库位置，经核对与正文一致。投稿不要求完整长篇，一条带章节号和原文引句的短笔记也能收录。</p>
+            <p><strong>交流区</strong>常见的话题包括“第13章浮标颜色变化”“周叔出场是否同一个人”“船票日期的合理解释”。发帖时注明讨论的是哪一章、哪条线索，比泛泛说“这章好看”更容易得到回应。作者偶尔会在评论区回复，回复过的帖子会在标题旁标记。</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="aux-sidebar" aria-label="辅助信息">
+        <div class="aux-card">
+          <h3><span class="accent-bar"></span>本周热读榜</h3>
+          <ol class="hot-list">
+            <li><span class="hot-rank top3">1</span><a href="/#featured">第15章《雾港来信》</a></li>
+            <li><span class="hot-rank top3">2</span><a href="/#featured">阿川档案：新增3条线索</a></li>
+            <li><span class="hot-rank top3">3</span><a href="/#featured">老纪航海日志摘录</a></li>
+            <li><span class="hot-rank">4</span><a href="/#featured">蓝色浮标的三次出现</a></li>
+            <li><span class="hot-rank">5</span><a href="/#featured">第14章船票日期问题</a></li>
+            <li><span class="hot-rank">6</span><a href="/#featured">周叔在第11章的两次出场</a></li>
+          </ol>
+        </div>
+
+        <div class="aux-card">
+          <h3><span class="accent-bar"></span>最近更新</h3>
+          <ul class="update-feed">
+            <li>第15章《雾港来信》<span class="update-time">11月7日</span></li>
+            <li>阿川档案新增3条<span class="update-time">11月6日</span></li>
+            <li>西灯塔内部结构修订<span class="update-time">11月4日</span></li>
+            <li>船票日期讨论汇总<span class="update-time">11月3日</span></li>
+            <li>第14章配图说明更新<span class="update-time">11月1日</span></li>
+            <li>老纪日志新增条目<span class="update-time">10月29日</span></li>
+          </ul>
+        </div>
+
+        <div class="aux-card">
+          <h3><span class="accent-bar"></span>条目速览</h3>
+          <ul class="update-feed">
+            <li>主线章节 15章</li>
+            <li>角色档案 46条</li>
+            <li>场景手记 41篇</li>
+            <li>读者投稿 19篇</li>
+            <li>考据帖 28帖</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="36" height="36" rx="9" fill="#f0b429"/>
+            <path d="M10 13h16v2H10zm0 5h16v2H10zm0 5h10v2H10z" fill="#0f2a3d"/>
+            <circle cx="27" cy="24" r="3.5" fill="#e85d4a"/>
+            <path d="M27 21v6M24 24h6" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">瓜老师的笔记海角连载</span>
+        </div>
+        <p class="footer-desc">
+          覆盖故事内1987年至2026年时间跨度，条目含主线章节、角色档案、场景手记、读者考据与投稿测绘图，更新节奏约每两周一次主线章节，档案与手记随章节进度增补。
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>内容</h4>
+          <ul>
+            <li><a href="/#featured">精选笔记</a></li>
+            <li><a href="/#updates">更新动态</a></li>
+            <li><a href="/#categories">分类索引</a></li>
+            <li><a href="/#deep-dive">深度解析</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>参与</h4>
+          <ul>
+            <li><a href="/#contribute">读者投稿</a></li>
+            <li><a href="/#comments">读者评论</a></li>
+            <li><a href="/#timeline">时间线梳理</a></li>
+            <li><a href="/#guide">新读者导读</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>辅助</h4>
+          <ul>
+            <li><a href="/#faq">常见问答</a></li>
+            <li><a href="/#news">相关资讯</a></li>
+            <li><a href="/#recommend">相关推荐</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>示例内容，用于展示连载笔记聚合形态。文中条目、日期、人物均为示例数据。</span>
+      <span>更新于2026年11月8日</span>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function() {
+      // 回到顶部
+      var backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backBtn.classList.add('visible');
+        } else {
+          backBtn.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      backBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 移动端菜单
+      var mobileBtn = document.getElementById('mobileMenuBtn');
+      var overlay = document.getElementById('mobileOverlay');
+      var sidebar = document.getElementById('channelSidebar');
+
+      function closeMobileMenu() {
+        sidebar.classList.remove('mobile-open');
+        overlay.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      function openMobileMenu() {
+        sidebar.classList.add('mobile-open');
+        overlay.classList.add('active');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      mobileBtn.addEventListener('click', function() {
+        if (sidebar.classList.contains('mobile-open')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+
+      overlay.addEventListener('click', closeMobileMenu);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('mobile-open')) {
+          closeMobileMenu();
+        }
+      });
+
+      // 点击频道后收起移动端菜单
+      sidebar.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 1024) {
+            closeMobileMenu();
+          }
+        });
+      });
+
+      // 频道导航高亮
+      var sections = document.querySelectorAll('main section[id]');
+      var channelLinks = document.querySelectorAll('.channel-list a');
+
+      function highlightNav() {
+        var scrollPos = window.scrollY + 140;
+        var currentId = '';
+        sections.forEach(function(sec) {
+          if (sec.offsetTop <= scrollPos) {
+            currentId = sec.id;
+          }
+        });
+        channelLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '/#' + currentId) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', highlightNav, { passive: true });
+      window.addEventListener('load', highlightNav);
+
+      // 搜索功能
+      var searchInput = document.getElementById('siteSearch');
+      var searchBtn = document.getElementById('searchBtn');
+
+      function doSearch() {
+        var q = (searchInput.value || '').trim().toLowerCase();
+        // 清除之前的高亮
+        document.querySelectorAll('.search-highlight').forEach(function(el) {
+          el.classList.remove('search-highlight');
+        });
+
+        if (!q) return;
+
+        var found = false;
+        var targets = document.querySelectorAll('.card-title, .list-title, .news-title, .timeline-title, .card-desc, .list-summary, .news-summary, .timeline-desc, .faq-list summary, .comment-text');
+        targets.forEach(function(el) {
+          var text = el.textContent.toLowerCase();
+          if (text.indexOf(q) !== -1) {
+            found = true;
+            el.classList.add('search-highlight');
+          }
+        });
+
+        if (!found) {
+          // 显示无结果提示
+          var existing = document.getElementById('searchNoResult');
+          if (!existing) {
+            var msg = document.createElement('div');
+            msg.id = 'searchNoResult';
+            msg.className = 'no-result-msg show';
+            msg.textContent = '没有找到与“' + searchInput.value + '”相关的内容，换个关键词试试。';
+            var mainCol = document.querySelector('.main-col');
+            mainCol.insertBefore(msg, mainCol.firstChild);
+          } else {
+            existing.textContent = '没有找到与“' + searchInput.value + '”相关的内容，换个关键词试试。';
+            existing.classList.add('show');
+          }
+          return;
+        } else {
+          var existing = document.getElementById('searchNoResult');
+          if (existing) existing.classList.remove('show');
+        }
+
+        // 滚动到第一个匹配项
+        var firstMatch = document.querySelector('.search-highlight');
+        if (firstMatch) {
+          firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      if (searchBtn) {
+        searchBtn.addEventListener('click', doSearch);
+      }
+      if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            doSearch();
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "瓜老师的笔记海角连载",
+    "description": "汇集连载笔记、海角故事与人物档案等具体内容，涵盖第15章更新、角色线索引、专题解析和读者评论。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "第15章信件邮戳日期和正文时间对不上，是写错了吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "邮戳日期是1987年9月28日，正文里分拣到信件的日期是2026年10月30日。中间近40年的间隔在故事里没有直接解释。场景手记第22篇提到过旧码头信箱在1990年代停用过一段时间，如果信件是在停用期间被压在旧箱底，时间跨度就有了解释空间。目前这属于读者推测，正文尚未确认。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "老纪日志里“蓝灯”到底指的是什么灯？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "第10章正文里，老纪记录的是灯塔备用灯，阿川看到的是远处船只信号灯。两个“蓝灯”在同一个章节里出现，但位置和用途不同。第14章灯塔设备清单里列了备用灯的颜色是蓝色，船用信号灯的颜色在正文里没有单独说明。所以老纪的“蓝灯”大概率是灯塔备用灯，阿川看到的那个需要另找依据。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "周叔在第11章出现两次，是同一个人吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "两次出场的地点和穿着有差异：调度室那次穿深色工装，小卖部那次穿浅灰外套。正文没有明确说是同一个人，但两次都被称为“周叔”，且都和阿川有对话。作者10月22日在评论区回复过，说这两次出场是刻意安排，后续会有对应解释。目前可以确定的是作者知道这个安排，但具体是同一个人还是两个人，正文还没给答案。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "船票上的“9月31日”有没有可能只是印刷错误？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "有这个可能。旧式船票确实出现过日期误印的情况，但正文没有提供同批次船票的实物或记录来佐证。如果把“9月31日”当成印刷错误，那第14章的时间线就不需要特殊解释；如果不当印刷错误，就需要解释为什么作者要安排一个不存在的日期。两种读法都能在正文里找到一些支持，目前没有定论。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "阿川的工作证背景里的船名，在第15章出现过吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "出现过。第15章信件落款处有一行小字，拼出来和船名一致。工作证是11月6日新增的档案条目，照片背景里的船名在第15章正文里能找到对应。这条线索把阿川的入职时间和信件的寄出时间关联了起来，但关联的具体含义正文还没展开。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "三条故事线是按什么顺序更新的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "从第1章到第15章，主线章节基本按雾港—灯塔—旧码头的顺序轮流推进，但不是严格轮换。第6章到第10章雾港线占的比重更大，第11章到第13章灯塔线比重上升，第14章和第15章又回到旧码头。场景手记和角色档案的更新不跟章节同步，有时会提前放出后续章节会用到的小条目。"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+    </html>

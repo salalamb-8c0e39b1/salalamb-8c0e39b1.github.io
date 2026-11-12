@@ -1,0 +1,2522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完具酱酱m写真视频全集 - 作品索引与观看指南</title>
+  <meta name="description" content="完具酱酱m写真视频全集收录写真视频作品、拍摄花絮与主题分类，按年份和风格整理。提供作品看点、更新动态、消费路径与观众评论，适合关注写真影像与创作花絮的观众查阅。">
+  <meta name="keywords" content="完具酱酱m写真视频全集">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23222b3a'/%3E%3Cpath d='M10 10h12v4H10zm0 6h12v4H10zm0 6h8v4h-8z' fill='%23d9a066'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #2a2f38;
+      --primary-light: #3e4652;
+      --primary-dark: #1a1e25;
+      --accent: #c07a3e;
+      --accent-light: #e8b88a;
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --text: #1d2127;
+      --text-secondary: #5f636b;
+      --text-muted: #8a8f97;
+      --border: #e2ddd6;
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-tag: 6px;
+      --shadow-default: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --header-height: 64px;
+      --announce-height: 36px;
+      --sticky-offset: calc(var(--announce-height) + var(--header-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* 吸顶公告条 + 页头 */
+    .sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+    }
+
+    .announce-bar {
+      height: var(--announce-height);
+      background: var(--primary-dark);
+      color: #e8e4dd;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      padding: 0 24px;
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .announce-bar .brand-tag {
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.3px;
+    }
+
+    .announce-bar .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #c5c0b8;
+    }
+
+    .announce-bar .announce-item strong {
+      color: #f0ebe3;
+      font-weight: 500;
+    }
+
+    .announce-bar .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .header {
+      height: var(--header-height);
+      background: rgba(247, 245, 242, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .header-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .header-nav a {
+      padding: 6px 14px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus-visible {
+      background: var(--primary-light);
+      color: #fff;
+      outline: none;
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0 10px;
+      height: 36px;
+      transition: border-color 0.15s;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--accent);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13px;
+      width: 160px;
+      color: var(--text);
+      font-family: var(--font);
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box button:hover {
+      color: var(--accent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      background: var(--surface);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--primary);
+    }
+
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 150;
+    }
+
+    .mobile-nav-overlay.active {
+      display: block;
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--surface);
+      z-index: 200;
+      padding: 24px;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+    }
+
+    .mobile-nav-panel.active {
+      display: flex;
+    }
+
+    .mobile-nav-panel a {
+      padding: 10px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+
+    .mobile-nav-panel a:hover {
+      background: var(--bg);
+    }
+
+    .mobile-nav-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      padding: 4px 8px;
+      margin-bottom: 8px;
+    }
+
+    /* 页面容器 */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      padding: 48px 0 40px;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--primary);
+      padding: 12px 24px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 500;
+      border: 1.5px solid var(--primary);
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 布局骨架 */
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 32px;
+      padding: 8px 0 64px;
+      align-items: start;
+    }
+
+    /* 左频道栏 */
+    .channel-nav {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+    }
+
+    .channel-nav h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .channel-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .channel-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .channel-nav a:hover,
+    .channel-nav a:focus-visible {
+      background: var(--surface);
+      color: var(--primary);
+      outline: none;
+    }
+
+    .channel-nav a .ch-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .channel-nav a:hover .ch-dot {
+      background: var(--accent);
+    }
+
+    /* 主内容区 */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .section-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* 主题领域概览 */
+    .overview-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      columns: 2;
+      column-gap: 32px;
+    }
+
+    .overview-text p {
+      margin-bottom: 12px;
+      break-inside: avoid;
+    }
+
+    .overview-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .content-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-default);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-type {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: #fdf3e9;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      margin-bottom: 8px;
+      align-self: flex-start;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 10px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: var(--bg);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+
+    /* 最新更新列表 */
+    .update-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .update-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .update-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      min-width: 70px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .update-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .update-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .category-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-default);
+    }
+
+    .category-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .deep-dive h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 28px 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .deep-dive h3:first-child {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      margin-bottom: 12px;
+    }
+
+    .deep-dive ul {
+      margin: 10px 0 14px 20px;
+      list-style: disc;
+    }
+
+    .deep-dive ul li {
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+
+    .deep-dive strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .insight-box {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 体验指南 - 步骤 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      counter-reset: step;
+    }
+
+    .guide-step {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      counter-increment: step;
+    }
+
+    .guide-step:last-child {
+      border-bottom: none;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-num::before {
+      content: counter(step);
+    }
+
+    .step-content h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary:hover {
+      background: var(--bg);
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 18px 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .comment-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .comment-nick {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .comment-time {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-thumb {
+      width: 100px;
+      height: 70px;
+      border-radius: var(--radius-tag);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--bg);
+    }
+
+    .news-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .news-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .news-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .news-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 相关推荐 - 标签索引 */
+    .rec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .rec-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .rec-tag:hover {
+      border-color: var(--accent);
+      background: #fdf3e9;
+      color: var(--accent);
+    }
+
+    .rec-tag .tag-count {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* 补充板块 - 时间线 */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 1.5px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+      padding-left: 12px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 右侧栏 */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      box-shadow: var(--shadow-default);
+    }
+
+    .sidebar-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hot-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hot-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .hot-item:last-child {
+      border-bottom: none;
+    }
+
+    .hot-rank {
+      width: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .hot-item:nth-child(1) .hot-rank { color: #d94f4f; }
+    .hot-item:nth-child(2) .hot-rank { color: #e07b3a; }
+    .hot-item:nth-child(3) .hot-rank { color: #c07a3e; }
+
+    .hot-name {
+      flex: 1;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .hot-score {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .sidebar-update {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-update-item {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .sidebar-update-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-light);
+    }
+
+    .sidebar-update-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* 互动栏目 */
+    .interact-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .interact-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .interact-banner p {
+      font-size: 13px;
+      color: #c5c0b8;
+      line-height: 1.5;
+    }
+
+    .interact-banner .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .interact-banner .btn-primary:hover {
+      background: #d48a4f;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: var(--primary-dark);
+      color: #c5c0b8;
+      padding: 48px 0 32px;
+      margin-top: 32px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f0ebe3;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #9a958e;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f0ebe3;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+      color: #9a958e;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-light);
+    }
+
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #3a3f48;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #6b6f78;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 90;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+
+    /* 筛选用隐藏 */
+    .hidden {
+      display: none !important;
+    }
+
+    /* 无结果提示 */
+    .no-result {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout {
+        grid-template-columns: 1fr 260px;
+      }
+      .channel-nav {
+        display: none;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr 300px;
+        gap: 24px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .mobile-nav-panel {
+        display: none;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        height: 200px;
+        order: -1;
+      }
+      .overview-text {
+        columns: 1;
+      }
+      .header {
+        padding: 0 16px;
+        gap: 16px;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .search-box input {
+        width: 100px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero h1 {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 焦点可见 */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* 首屏动画 */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-visual .float-group {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-visual .float-group {
+        animation: none;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 + 页头 -->
+  <div class="sticky-wrap">
+    <div class="announce-bar">
+      <span class="brand-tag">完具酱酱m写真视频全集</span>
+      <span class="announce-item"><span class="dot"></span>11月7日 <strong>「午后胶片·阳台篇」</strong> 新增4K修复版</span>
+      <span class="announce-item"><span class="dot"></span>11月5日 <strong>「深秋限定·银杏外景」</strong> 幕后花絮上线</span>
+      <span class="announce-item"><span class="dot"></span>11月3日 <strong>「书房私服」</strong> 系列更新第3集</span>
+    </div>
+
+    <header class="header">
+      <a href="/" class="logo" aria-label="完具酱酱m写真视频全集 首页">
+        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect width="28" height="28" rx="7" fill="#2a2f38"/>
+          <rect x="7" y="8" width="14" height="4" rx="1" fill="#d9a066"/>
+          <rect x="7" y="14" width="14" height="4" rx="1" fill="#e8b88a" opacity="0.7"/>
+          <rect x="7" y="20" width="9" height="3" rx="1" fill="#c07a3e" opacity="0.5"/>
+        </svg>
+        <span>完具酱酱m写真视频全集</span>
+      </a>
+
+      <nav class="header-nav" aria-label="主题导航">
+        <a href="/#featured">精选作品</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#categories">分类索引</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">观看指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">观众评论</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="search" id="searchInput" placeholder="搜索作品或类型…" aria-label="搜索作品或类型">
+          <button type="button" id="searchBtn" aria-label="搜索">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+        </div>
+        <button type="button" class="btn-ghost" aria-label="投稿入口">投稿</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- 移动端遮罩与导航面板 -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-panel" id="mobilePanel">
+    <button class="mobile-nav-close" id="mobileClose" aria-label="关闭菜单">✕</button>
+    <a href="/#featured">精选作品</a>
+    <a href="/#updates">最新更新</a>
+    <a href="/#categories">分类索引</a>
+    <a href="/#deep-dive">深度解析</a>
+    <a href="/#guide">观看指南</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">观众评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#timeline">更新时间线</a>
+    <a href="/#interact">投稿与交流</a>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>完具酱酱m写真视频全集</h1>
+          <p class="hero-desc">
+            聚焦写真视频创作者「完具酱酱m」的影像作品库。收录阳台胶片、银杏外景、书房私服等主题系列，按拍摄年份与风格分类，附作品看点、更新记录与观看顺序参考。
+          </p>
+          <div class="hero-actions">
+            <a href="/#featured" class="btn-primary">
+              浏览精选作品
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/#updates" class="btn-outline">查看最新更新</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 380 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heroGrad" x1="0" y1="0" x2="380" y2="280" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2a2f38" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#c07a3e" stop-opacity="0.06"/>
+              </linearGradient>
+              <linearGradient id="cardGrad1" x1="0" y1="0" x2="120" y2="160" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#e8b88a" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#c07a3e" stop-opacity="0.15"/>
+              </linearGradient>
+              <linearGradient id="cardGrad2" x1="0" y1="0" x2="140" y2="180" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#b0b8c4" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#5f636b" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <rect width="380" height="280" rx="16" fill="url(#heroGrad)"/>
+            <!-- 抽象胶片/相框组合 -->
+            <g class="float-group">
+              <rect x="40" y="50" width="140" height="170" rx="10" fill="#fff" stroke="#e2ddd6" stroke-width="1.5"/>
+              <rect x="52" y="62" width="116" height="80" rx="6" fill="url(#cardGrad1)"/>
+              <rect x="52" y="152" width="80" height="8" rx="4" fill="#e2ddd6"/>
+              <rect x="52" y="166" width="100" height="6" rx="3" fill="#f0ebe3"/>
+              <rect x="52" y="178" width="60" height="6" rx="3" fill="#f0ebe3"/>
+              <rect x="52" y="194" width="40" height="14" rx="4" fill="#fdf3e9"/>
+              <rect x="60" y="197" width="24" height="8" rx="2" fill="#c07a3e" opacity="0.6"/>
+
+              <rect x="200" y="70" width="140" height="160" rx="10" fill="#fff" stroke="#e2ddd6" stroke-width="1.5"/>
+              <rect x="212" y="82" width="116" height="74" rx="6" fill="url(#cardGrad2)"/>
+              <circle cx="270" cy="119" r="18" fill="#fff" opacity="0.6"/>
+              <polygon points="264,110 282,119 264,128" fill="#c07a3e" opacity="0.5"/>
+              <rect x="212" y="166" width="90" height="8" rx="4" fill="#e2ddd6"/>
+              <rect x="212" y="180" width="110" height="6" rx="3" fill="#f0ebe3"/>
+              <rect x="212" y="192" width="70" height="6" rx="3" fill="#f0ebe3"/>
+
+              <!-- 装饰线 -->
+              <line x1="40" y1="240" x2="340" y2="240" stroke="#e2ddd6" stroke-width="1" stroke-dasharray="4 4"/>
+              <rect x="40" y="250" width="60" height="6" rx="3" fill="#e8b88a" opacity="0.4"/>
+              <rect x="110" y="250" width="30" height="6" rx="3" fill="#e2ddd6" opacity="0.6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区 -->
+  <div class="container">
+    <div class="layout">
+
+      <!-- 左频道栏 -->
+      <aside class="channel-nav" aria-label="频道索引">
+        <h3>频道索引</h3>
+        <ul>
+          <li><a href="/#featured"><span class="ch-dot"></span>精选作品</a></li>
+          <li><a href="/#updates"><span class="ch-dot"></span>最新更新</a></li>
+          <li><a href="/#categories"><span class="ch-dot"></span>分类索引</a></li>
+          <li><a href="/#deep-dive"><span class="ch-dot"></span>深度解析</a></li>
+          <li><a href="/#guide"><span class="ch-dot"></span>观看指南</a></li>
+          <li><a href="/#faq"><span class="ch-dot"></span>常见问答</a></li>
+          <li><a href="/#comments"><span class="ch-dot"></span>观众评论</a></li>
+          <li><a href="/#news"><span class="ch-dot"></span>相关资讯</a></li>
+          <li><a href="/#recommend"><span class="ch-dot"></span>延伸推荐</a></li>
+          <li><a href="/#timeline"><span class="ch-dot"></span>更新时间线</a></li>
+          <li><a href="/#interact"><span class="ch-dot"></span>投稿与交流</a></li>
+        </ul>
+      </aside>
+
+      <!-- 主内容 -->
+      <main class="main-content">
+
+        <!-- 主题领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-header">
+            <h2>写真影像作品脉络</h2>
+            <p>从阳台胶片到银杏外景，梳理「完具酱酱m」的创作方向与风格演变</p>
+          </div>
+          <div class="overview-text">
+            <p>
+              「完具酱酱m」的写真视频以<strong>日常场景与自然光</strong>为基底，拍摄地点集中在生活空间——阳台、书房、卧室、厨房——而非影棚布景。2025年之前的作品偏重<strong>胶片颗粒感</strong>，多用Fujifilm模拟色调；2026年春季之后转向数码高解析路线，4K版本成为主流规格。
+            </p>
+            <p>
+              从系列结构看，目前可辨识出三条线：<strong>「午后胶片」</strong>系列以阳台和窗边为固定场景，每集12—18分钟；<strong>「季节限定」</strong>系列跟随节气外拍，银杏、樱花、雪景各成章节；<strong>「私服日常」</strong>系列时长较短，8—12分钟，以服装搭配和居家动线为主。
+            </p>
+            <p>
+              2026年10月下旬更新的「深秋限定·银杏外景」是季节系列的第五弹，取景地在北京将府公园，拍摄时间标注为10月28日，成片11月5日上线。这一集首次加入<strong>幕后拍摄花絮</strong>作为正片后的附加内容，时长约6分钟。
+            </p>
+            <p>
+              值得留意的是<strong>「书房私服」</strong>系列更新节奏最稳定，从9月12日首集至今已更新至第3集，每集约两周间隔。该系列的评论区讨论集中在灯光布置和镜头焦段上，有观众根据画面阴影推断使用了一盏南向窗光加反光板，而非补光灯。
+            </p>
+          </div>
+        </section>
+
+        <!-- 精选内容推荐 -->
+        <section class="section" id="featured">
+          <div class="section-header">
+            <h2>精选作品与系列看点</h2>
+            <p>按类型与拍摄主题整理的代表性条目</p>
+          </div>
+          <div class="card-grid" id="cardGrid">
+
+            <article class="content-card" data-keywords="午后胶片 阳台 4K修复 胶片模拟">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-balcony/400/300" alt="午后胶片阳台篇窗边取景画面" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">系列作品</span>
+                <h3 class="card-title">午后胶片·阳台篇（4K修复版）</h3>
+                <p class="card-desc">2025年8月原始版本重新调色输出，保留Fujifilm Pro 400H颗粒模拟，窗边逆光段落的暗部细节有明显提升。</p>
+                <div class="card-tags">
+                  <span class="tag">胶片模拟</span>
+                  <span class="tag">自然光</span>
+                  <span class="tag">修复版</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 8.6k</span>
+                  <span>11月7日更新</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="深秋限定 银杏 外景 将府公园 花絮">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-ginkgo/400/300" alt="深秋银杏外景拍摄地公园步道" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">季节限定</span>
+                <h3 class="card-title">深秋限定·银杏外景</h3>
+                <p class="card-desc">10月28日于将府公园拍摄，正片16分钟加6分钟幕后花絮。花絮里能看到反光板角度调整和两次重拍走位。</p>
+                <div class="card-tags">
+                  <span class="tag">外景拍摄</span>
+                  <span class="tag">幕后花絮</span>
+                  <span class="tag">秋季</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 12.1k</span>
+                  <span>11月5日上线</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="书房私服 第3集 窗光 反光板">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-study/400/300" alt="书房私服系列室内窗边拍摄场景" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">日常系列</span>
+                <h3 class="card-title">书房私服·第3集</h3>
+                <p class="card-desc">11月3日更新，时长11分钟。全程南向窗光加一块白色反光板，画面色温偏冷，与第1、2集的暖调形成对比。</p>
+                <div class="card-tags">
+                  <span class="tag">室内自然光</span>
+                  <span class="tag">私服搭配</span>
+                  <span class="tag">窗边取景</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 6.4k</span>
+                  <span>11月3日更新</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="樱花 季节限定 2026春 外拍">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-sakura/400/300" alt="春季樱花树下拍摄的花瓣与光影" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">季节限定</span>
+                <h3 class="card-title">春限定·樱花树下</h3>
+                <p class="card-desc">2026年4月2日拍摄于玉渊潭公园，成片14分钟。这一集开始使用4K 60p录制，花瓣飘落的慢动作段落占全片约1/5。</p>
+                <div class="card-tags">
+                  <span class="tag">春季外拍</span>
+                  <span class="tag">4K 60p</span>
+                  <span class="tag">慢动作</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 9.8k</span>
+                  <span>4月10日上线</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="雪景 冬季限定 12月 雪后">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-snow/400/300" alt="冬季雪后庭院拍摄的雪景与脚印" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">季节限定</span>
+                <h3 class="card-title">冬限定·雪后庭院</h3>
+                <p class="card-desc">2025年12月17日拍摄，雪后第二天下午。全片10分钟无对白，环境音保留雪落和踩雪的声响。评论区有人提到收音麦的位置在画面里露了半截。</p>
+                <div class="card-tags">
+                  <span class="tag">冬季外拍</span>
+                  <span class="tag">环境音</span>
+                  <span class="tag">无对白</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 7.2k</span>
+                  <span>12月24日上线</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="厨房 私服 日常 早餐 自然光">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-kitchen/400/300" alt="厨房晨光中准备早餐的日常场景" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">日常系列</span>
+                <h3 class="card-title">私服日常·厨房早餐</h3>
+                <p class="card-desc">9月26日更新，9分钟。拍摄时段为早上7:20—7:50，利用东向窗户的低角度侧光。全片一个固定机位加一个手持特写机位切换。</p>
+                <div class="card-tags">
+                  <span class="tag">晨光</span>
+                  <span class="tag">固定机位</span>
+                  <span class="tag">生活场景</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 5.3k</span>
+                  <span>9月26日更新</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="黄昏 天台 逆光 系列">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-rooftop/400/300" alt="黄昏天台逆光拍摄的剪影与晚霞" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">系列作品</span>
+                <h3 class="card-title">午后胶片·天台黄昏篇</h3>
+                <p class="card-desc">该系列第4集，10月12日拍摄。全程逆光，人物以剪影和半剪影出现。片尾字幕标注使用了ND减光镜，型号未写明。</p>
+                <div class="card-tags">
+                  <span class="tag">逆光拍摄</span>
+                  <span class="tag">剪影</span>
+                  <span class="tag">ND滤镜</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 7.7k</span>
+                  <span>10月18日上线</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="content-card" data-keywords="花絮 拍摄现场 反光板 走位">
+              <div class="card-img">
+                <img src="https://picsum.photos/seed/wjj-mm-bts/400/300" alt="拍摄现场反光板与相机设备的花絮记录" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <span class="card-type">幕后花絮</span>
+                <h3 class="card-title">银杏外景·幕后直击</h3>
+                <p class="card-desc">6分钟花絮，记录了从架设三脚架到调整反光板角度的完整准备过程。有两段因为风太大导致收音失败，正片里换了配音。</p>
+                <div class="card-tags">
+                  <span class="tag">拍摄现场</span>
+                  <span class="tag">收音问题</span>
+                  <span class="tag">幕后记录</span>
+                </div>
+                <div class="card-meta">
+                  <span>热度 4.9k</span>
+                  <span>11月5日上线</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <div class="no-result hidden" id="noResult">没有找到匹配的作品，试试「胶片」「银杏」「书房」等关键词。</div>
+        </section>
+
+        <!-- 最新更新 -->
+        <section class="section" id="updates">
+          <div class="section-header">
+            <h2>近期更新与上线记录</h2>
+            <p>按发布时间排列的条目动态</p>
+          </div>
+          <div class="update-list">
+            <div class="update-item">
+              <span class="update-date">11月7日</span>
+              <div>
+                <div class="update-title">「午后胶片·阳台篇」4K修复版上线</div>
+                <div class="update-summary">原始素材重新调色，窗边逆光段落的暗部提升约1.5档，颗粒保留策略从全局改为高光区域局部添加。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">11月5日</span>
+              <div>
+                <div class="update-title">「深秋限定·银杏外景」正片与花絮同步更新</div>
+                <div class="update-summary">正片16分钟，花絮6分钟。取景地标注为将府公园，拍摄日期10月28日，天气记录为晴转多云。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">11月3日</span>
+              <div>
+                <div class="update-title">「书房私服」第3集上线</div>
+                <div class="update-summary">时长11分钟，全程南向窗光。与第2集间隔14天，延续了两周更新的节奏。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">10月28日</span>
+              <div>
+                <div class="update-title">「银杏外景」拍摄完成</div>
+                <div class="update-summary">当天下午完成外拍，社交账号发布了三张现场照片，其中一张能看到反光板和相机屏幕的取景画面。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">10月18日</span>
+              <div>
+                <div class="update-title">「午后胶片·天台黄昏篇」上线</div>
+                <div class="update-summary">系列第4集，全程逆光拍摄，片尾标注使用ND减光镜。评论区讨论集中在剪影轮廓的清晰度上。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">10月12日</span>
+              <div>
+                <div class="update-title">天台黄昏篇拍摄日</div>
+                <div class="update-summary">从下午4点半持续到6点10分，利用日落前最后一小时拍摄。社交账号发布了一张监视器截图，色温显示为5600K。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">9月26日</span>
+              <div>
+                <div class="update-title">「私服日常·厨房早餐」更新</div>
+                <div class="update-summary">早间自然光场景，两个机位。片长9分钟，是日常系列中时长最短的一集。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">9月12日</span>
+              <div>
+                <div class="update-title">「书房私服」第1集上线</div>
+                <div class="update-summary">该系列首集，时长13分钟，暖调处理。第2集在9月26日更新，色调逐渐偏冷。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">8月30日</span>
+              <div>
+                <div class="update-title">「午后胶片」系列播放量突破50万</div>
+                <div class="update-summary">平台公开数据显示该系列累计播放量达到51.2万，其中阳台篇贡献约18万。</div>
+              </div>
+            </div>
+            <div class="update-item">
+              <span class="update-date">7月15日</span>
+              <div>
+                <div class="update-title">「夏限定·午后阵雨」上线</div>
+                <div class="update-summary">雨停后20分钟内拍摄完成，地面积水反光是主要视觉元素。片长12分钟。</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 分类入口 -->
+        <section class="section" id="categories">
+          <div class="section-header">
+            <h2>按类型与主题分类</h2>
+            <p>点击进入对应条目索引</p>
+          </div>
+          <div class="category-grid">
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">◐</span>
+              午后胶片系列
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">❄</span>
+              季节限定外拍
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">⌂</span>
+              私服日常系列
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">◻</span>
+              4K修复版本
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">▶</span>
+              幕后花絮与制作
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">☀</span>
+              自然光拍摄
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">✎</span>
+              胶片模拟调色
+            </a>
+            <a href="/#featured" class="category-item">
+              <span class="category-icon">▦</span>
+              短时长条目
+            </a>
+          </div>
+        </section>
+
+        <!-- 深度解析 -->
+        <section class="section" id="deep-dive">
+          <div class="section-header">
+            <h2>自然光写真视频的画面判断</h2>
+            <p>从光位、设备与后期三个层面拆解「完具酱酱m」作品的视觉特征</p>
+          </div>
+          <div class="deep-dive">
+            <h3>窗光与反光板：室内场景的光线逻辑</h3>
+            <p>
+              「书房私服」系列第1集到第3集的变化，提供了一个可对比的样本。第1集（9月12日）的色温偏暖，人物面部阴影面与亮面的光比大约在1:2.5左右，推测只有窗光加白色墙面反射。第2集（9月26日）的阴影变浅，光比缩到1:1.8，画面里能看到人物右侧有一块白色反光板的边缘——在第3集（11月3日）的花絮镜头里，这块反光板被明确拍到了，尺寸约60×90cm，放在窗边与人物之间偏右的位置。
+            </p>
+            <p>
+              这个变化带来的直接结果是面部立体感减弱，但肤色均匀度提升。第3集的评论区里有观众指出「脸看起来平了」，另一条回复则认为「比第一集自然」。两种说法指向同一件事：光比缩小后，五官的明暗过渡变缓，有人觉得干净，有人觉得缺层次。这是审美选择，不是技术失误。
+            </p>
+            <div class="insight-box">
+              <strong>可核对的结构：</strong>判断一条室内自然光写真的光线处理，可以看三个位置——鼻尖投影的锐度（反光板越近投影越散）、下颌线阴影的深度（光比越大越深）、眼窝的明暗过渡（顶光还是平光）。第3集里鼻尖投影几乎不可见，下颌线阴影比第1集浅了约一档，眼窝没有明显暗角。三项都指向平光处理。
+            </div>
+
+            <h3>4K修复版改了什么：一个版本对比</h3>
+            <p>
+              11月7日上线的「午后胶片·阳台篇」4K修复版，和2025年8月原始版本之间的差异，集中在三个参数上。根据平台公开的规格信息，修复版分辨率从1080p提升到2160p，码率从8Mbps提高到22Mbps，色彩空间从Rec.709转为Rec.2020。肉眼可见的变化主要在窗边逆光的段落：原始版本里窗户右侧的墙面几乎死白，修复版能看出墙纸上浅灰色的竖条纹。
+            </p>
+            <p>
+              但胶片颗粒的处理方式变了。原始版本的颗粒是全画面均匀分布的，修复版把颗粒添加范围限制在高光和中间调区域，暗部做了降噪。这个做法的好处是暗部更干净，代价是颗粒的「胶片感」变得不那么均匀。有观众在11月7日的评论里写「修复版锐过头了，像数码拍的」，另一条则说「原来那个版本暗部噪点太脏，修完能看了」。两条评论其实在说同一件事的两面。
+            </p>
+
+            <h3>外景拍摄的变量控制：以银杏篇为例</h3>
+            <p>
+              「深秋限定·银杏外景」的花絮里记录了两个失败重拍的原因：一是风太大导致反光板晃动，画面里人物面部的光在3秒内出现了约半档的波动；二是收音麦的防风毛套没有装稳，录到了摩擦声。这两个问题在正片里都被处理了——光波动通过后期稳定插件做了平滑，摩擦声的那一段换成了环境音铺底。
+            </p>
+            <p>
+              外景拍摄的变量比室内多，但「完具酱酱m」的季节系列有一个固定的应对策略：选择树荫下的散射光而非直射阳光，用反光板补阴影面，机位避开天空过曝的角度。从银杏篇的成片看，人物面部照度均匀，背景的银杏叶保留了黄色饱和度但没有过曝，说明曝光基准放在了高光区域，大约在斑马纹出现前0.3档左右。
+            </p>
+            <ul>
+              <li>风速超过3级时，反光板需要两人固定，花絮里有明确的固定动作。</li>
+              <li>收音麦的防风毛套在花絮中被单独拍到，放在包侧袋里，拍摄时没有第一时间装上。</li>
+              <li>正片第4分12秒处的环境音有一段突然变干净，对应的就是摩擦声被替换的段落。</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 体验指南 -->
+        <section class="section" id="guide">
+          <div class="section-header">
+            <h2>观看顺序与选择依据</h2>
+            <p>按目的而非按时间线排列的消费路径</p>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <span class="step-num"></span>
+              <div class="step-content">
+                <h4>先确定看的是画面还是氛围</h4>
+                <p>如果关注光线和构图，从「午后胶片·阳台篇」开始，这一集的窗光处理最典型。如果更在意场景和季节性，「深秋限定·银杏外景」的视觉信息量更密集。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num"></span>
+              <div class="step-content">
+                <h4>判断一条作品的投入产出</h4>
+                <p>时长和内容密度是两个指标。「书房私服」系列每集10—13分钟，节奏偏慢，适合完整观看；「私服日常」系列的单集更短，厨房早餐只有9分钟，适合快速浏览。花絮类内容6分钟左右，信息集中在拍摄过程而非成片本身。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num"></span>
+              <div class="step-content">
+                <h4>比较同一系列的不同集</h4>
+                <p>「午后胶片」系列里，阳台篇（第1集）和天台黄昏篇（第4集）的用光逻辑完全不同——前者是漫射窗光，后者是硬光逆光。看第4集时重点看剪影轮廓和边缘光，看第1集时重点看暗部细节和颗粒质感。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num"></span>
+              <div class="step-content">
+                <h4>把花絮当作独立条目使用</h4>
+                <p>银杏篇的花絮提供了正片里看不到的设备信息和拍摄决策过程。如果对拍摄方法感兴趣，花絮的参考价值高于正片。花絮里提到的反光板尺寸、收音问题和重拍原因，都可以直接对到正片的具体段落。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+          <div class="section-header">
+            <h2>常见问题</h2>
+            <p>围绕作品、拍摄与版本差异的问答</p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>「午后胶片」系列的胶片感是前期拍的还是后期加的？</summary>
+              <div class="faq-answer">
+                前期拍摄使用的是数码相机，胶片模拟来自后期调色。阳台篇原始版本的颗粒是全画面统一添加的，11月7日的4K修复版改为高光和中间调区域局部添加，暗部做了降噪。调色参考的是Fujifilm Pro 400H的色罩特征，绿色偏青，红色偏暖。
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>银杏外景篇里有一段声音突然变干净了，是修过吗？</summary>
+              <div class="faq-answer">
+                正片第4分12秒附近的环境音确实做了替换。花絮里提到当天风大，收音麦的防风毛套没有装稳，录到了摩擦声。正片里那一段用了环境音铺底，替换了原始同期声。花絮中能看到毛套放在包侧袋里的画面。
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>书房私服三集的色温为什么不一样？</summary>
+              <div class="faq-answer">
+                第1集暖调，第2集中性偏暖，第3集偏冷。变化来自反光板距离和后期白平衡的调整。第3集的反光板离人物更近，面部光比缩小，画面整体色温被后期拉到5200K左右，比第1集的5600K低。三集的拍摄时段也不同，第1集在下午3点，第3集在上午10点，窗光的色温本身就有差异。
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>季节限定系列下一集会拍什么？</summary>
+              <div class="faq-answer">
+                根据更新记录，季节系列已经覆盖了春（樱花）、夏（阵雨）、秋（银杏）、冬（雪后）四个节点。11月8日之前没有发布下一集的预告。从拍摄节奏推断，冬季条目可能集中在12月中下旬，雪后场景的概率较高，但具体取景地未公开。
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>「私服日常」和「书房私服」有什么区别？</summary>
+              <div class="faq-answer">
+                「私服日常」是更早开始的系列，场景包含厨房、卧室、玄关等多个生活空间，单集8—12分钟。「书房私服」是9月新开的系列，场景固定在书房，以窗光和固定机位为主，更新更规律。两个系列在服装搭配上没有交叉，拍摄时段也不同——日常系列多在早晨，书房系列在上午到下午之间。
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>4K修复版和原始版本哪个更值得看？</summary>
+              <div class="faq-answer">
+                取决于关注点。修复版在窗边逆光段落的暗部细节明显更好，墙纸纹理和暗部层次都能看到；但颗粒的均匀性不如原始版本，暗部降噪之后胶片感减弱。对画质和细节敏感的观众，修复版更合适；如果在意颗粒质感的整体性，原始版本更统一。两个版本目前都在平台上。
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 用户评论 -->
+        <section class="section" id="comments">
+          <div class="section-header">
+            <h2>观众评论摘录</h2>
+            <p>来自作品页面与社交平台的真实语气反馈</p>
+          </div>
+          <div class="comment-list">
+            <div class="comment-item">
+              <div class="comment-avatar">林</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">林间有风</span><span class="comment-time">11月7日</span></div>
+                <p class="comment-text">阳台篇修复版把墙纸纹理修出来了，之前那版窗户右边完全过曝。但颗粒真的变少了，有点可惜。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">陈</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">陈拾壹</span><span class="comment-time">11月7日</span></div>
+                <p class="comment-text">书房第3集那个色温我第一遍看觉得怪，第二遍就顺眼了。反光板放那么近，脸确实平，但皮肤质感反而好了。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">赵</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">赵家小六</span><span class="comment-time">11月6日</span></div>
+                <p class="comment-text">银杏花絮里收音那段太真实了，风一吹毛套没装，录了十分钟垃圾音。谁拍外景没遇到过。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">周</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">周周不加班</span><span class="comment-time">11月6日</span></div>
+                <p class="comment-text">天台黄昏篇的剪影轮廓不够锐，不知道是镜头还是后期压缩的问题。ND镜型号也不写，参考价值打折。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">吴</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">吴大明白</span><span class="comment-time">11月5日</span></div>
+                <p class="comment-text">正片16分钟，前4分钟全是场景空镜，节奏有点拖。但后面人物入画之后好多了。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">孙</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">孙一勺</span><span class="comment-time">11月5日</span></div>
+                <p class="comment-text">厨房早餐那集我看了三遍。7点20的光线角度太舒服了，东窗低角度侧光打在台面上，影子拉得很长。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">刘</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">刘浪汉</span><span class="comment-time">11月4日</span></div>
+                <p class="comment-text">樱花篇的4K 60p慢动作占了五分之一时长？体感不止。花瓣飘那几段反复用了三次，稍微有点注水。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">郑</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">郑在吃饭</span><span class="comment-time">11月4日</span></div>
+                <p class="comment-text">雪后庭院那集没有对白是对的，踩雪的声音录得很清楚。不过收音麦露了半截在画面里，笑死。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">王</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">王半仙</span><span class="comment-time">11月3日</span></div>
+                <p class="comment-text">书房系列更新节奏比私服日常稳多了。日常系列上一次更新还是9月26日，快一个半月没动静了。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">李</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">李不白</span><span class="comment-time">11月3日</span></div>
+                <p class="comment-text">第3集结尾那个镜头从窗边摇到书架，中间虚焦了大概半秒。小问题，但看着难受。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">许</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">许愿树</span><span class="comment-time">11月2日</span></div>
+                <p class="comment-text">问个技术问题：阳台篇修复版码率22Mbps，原始版本8Mbps，但文件体积差了三倍多，这合理吗？</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">何</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">何处惹尘埃</span><span class="comment-time">11月1日</span></div>
+                <p class="comment-text">银杏那集正片色调偏黄，花絮里监视器上看着没这么黄。后期是不是又拉了一档饱和？</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">马</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">马可菠萝</span><span class="comment-time">10月30日</span></div>
+                <p class="comment-text">我喜欢天台黄昏篇那种硬光。现在大部分写真视频全是柔光平光，看得人脸都糊成一片。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">高</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">高乐高</span><span class="comment-time">10月29日</span></div>
+                <p class="comment-text">说实话更想看拍摄过程而不是成片。花絮6分钟比正片16分钟信息量大。</p>
+              </div>
+            </div>
+            <div class="comment-item">
+              <div class="comment-avatar">张</div>
+              <div class="comment-body">
+                <div class="comment-meta"><span class="comment-nick">张鱼小丸子</span><span class="comment-time">10月27日</span></div>
+                <p class="comment-text">这个系列从去年看到现在，最大的变化就是越来越锐、越来越亮。谈不上好坏，就是风格变了。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-header">
+            <h2>相关资讯与动态</h2>
+            <p>与写真视频创作、平台更新相关的具体信息</p>
+          </div>
+          <div class="news-list">
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-1/600/400" alt="平台创作者后台更新公告界面" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">平台上线4K HDR转码支持，多部写真作品进入修复队列</div>
+                <div class="news-summary">11月6日平台更新转码规格公告，新增Rec.2020色彩空间支持。目前已有超过200部作品进入修复队列，「午后胶片」系列出现在首批名单中。</div>
+                <div class="news-date">2026年11月6日</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-2/600/400" alt="将府公园银杏大道秋季实景" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">将府公园银杏进入最佳观赏期，外拍团队集中在10月28日前后</div>
+                <div class="news-summary">园林管理处10月26日发布观赏指数，银杏变色率达到85%。多个写真创作团队在该周完成外拍，「完具酱酱m」的拍摄日期正落在这一窗口内。</div>
+                <div class="news-date">2026年10月26日</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-3/600/400" alt="南向窗户自然光拍摄测试场景" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">窗光写真教程热度上升，反光板距离成为讨论焦点</div>
+                <div class="news-summary">10月下旬多个摄影账号发布窗光布光对比测试，其中一篇以「书房私服」第1集和第3集为案例，分析了反光板距离对面部光比的影响，转发量超过3400次。</div>
+                <div class="news-date">2026年10月24日</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-4/600/400" alt="胶片模拟调色软件界面局部截图" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">Fujifilm Pro 400H胶片模拟预设更新，暗部处理逻辑调整</div>
+                <div class="news-summary">10月20日调色社区发布新版预设，将颗粒添加范围从全画面改为高光与中间调区域。这一改动与阳台篇4K修复版的颗粒处理策略在时间上接近。</div>
+                <div class="news-date">2026年10月20日</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-5/600/400" alt="外景收音设备防风毛套与录音机" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">户外拍摄收音问题引发讨论，防风毛套安装规范被反复提及</div>
+                <div class="news-summary">11月5日花絮上线后，评论区有录音专业观众指出毛套未装稳是外拍常见失误。相关讨论帖在音频社区被转发，附有正确的安装步骤图解。</div>
+                <div class="news-date">2026年11月5日</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-thumb">
+                <img src="https://picsum.photos/seed/wjj-news-6/600/400" alt="监视器屏幕显示拍摄参数与波形图" width="600" height="400" loading="lazy">
+              </div>
+              <div class="news-info">
+                <div class="news-title">天台黄昏篇ND镜型号未标注，观众在评论区补充推测</div>
+                <div class="news-summary">10月18日上线后，有观众根据画面高光压制程度推测使用了ND8或ND16减光镜，另有人指出片尾字幕只写了「ND滤镜」未给具体档位，建议后续条目补充设备清单。</div>
+                <div class="news-date">2026年10月19日</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关推荐 -->
+        <section class="section" id="recommend">
+          <div class="section-header">
+            <h2>延伸搜索方向</h2>
+            <p>与当前条目相关但角度不同的内容标签</p>
+          </div>
+          <div class="rec-tags">
+            <a href="/#featured" class="rec-tag">胶片颗粒对比 <span class="tag-count">4条目</span></a>
+            <a href="/#featured" class="rec-tag">窗光布光方法 <span class="tag-count">3条目</span></a>
+            <a href="/#featured" class="rec-tag">外景收音设备 <span class="tag-count">2条目</span></a>
+            <a href="/#featured" class="rec-tag">逆光剪影拍摄 <span class="tag-count">1条目</span></a>
+            <a href="/#featured" class="rec-tag">反光板距离测试 <span class="tag-count">2条目</span></a>
+            <a href="/#featured" class="rec-tag">4K修复前后对比 <span class="tag-count">1条目</span></a>
+            <a href="/#featured" class="rec-tag">季节外拍取景地 <span class="tag-count">4条目</span></a>
+            <a href="/#featured" class="rec-tag">私服搭配与场景 <span class="tag-count">3条目</span></a>
+          </div>
+        </section>
+
+        <!-- 补充板块 - 时间线 -->
+        <section class="section" id="timeline">
+          <div class="section-header">
+            <h2>系列更新时间线</h2>
+            <p>2026年7月至11月的条目上线与拍摄记录</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">11月7日</div>
+              <div class="timeline-title">「午后胶片·阳台篇」4K修复版上线</div>
+              <div class="timeline-desc">原始版本2025年8月发布，修复版码率22Mbps，暗部降噪，颗粒改为局部添加。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月5日</div>
+              <div class="timeline-title">「深秋限定·银杏外景」正片与花絮</div>
+              <div class="timeline-desc">正片16分钟，花絮6分钟。拍摄日期10月28日，将府公园。花絮记录了收音问题与重拍过程。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">11月3日</div>
+              <div class="timeline-title">「书房私服」第3集</div>
+              <div class="timeline-desc">时长11分钟，南向窗光加反光板，色温5200K。与第2集间隔14天。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">10月18日</div>
+              <div class="timeline-title">「午后胶片·天台黄昏篇」</div>
+              <div class="timeline-desc">系列第4集，逆光剪影，ND滤镜未标注型号。拍摄日期10月12日。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">9月26日</div>
+              <div class="timeline-title">「私服日常·厨房早餐」与「书房私服」第2集同日更新</div>
+              <div class="timeline-desc">厨房早餐9分钟，书房第2集13分钟。两条内容在同一日上线。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">9月12日</div>
+              <div class="timeline-title">「书房私服」第1集上线</div>
+              <div class="timeline-desc">系列首集，暖调，光比约1:2.5。时长13分钟。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">7月15日</div>
+              <div class="timeline-title">「夏限定·午后阵雨」</div>
+              <div class="timeline-desc">雨停后20分钟内拍摄，地面积水反光。片长12分钟。</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 互动栏目 -->
+        <section class="section" id="interact">
+          <div class="interact-banner">
+            <div>
+              <h3>投稿你的拍摄笔记或作品观察</h3>
+              <p>如果你对窗光布光、外景收音或胶片模拟调色有自己的经验，欢迎提交文字或图片笔记。每月整理一次投稿精选。</p>
+            </div>
+            <a href="/#interact" class="btn-primary">我要投稿</a>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>🔥 热度排行</h3>
+          <div class="hot-list">
+            <div class="hot-item"><span class="hot-rank">1</span><span class="hot-name">深秋限定·银杏外景</span><span class="hot-score">12.1k</span></div>
+            <div class="hot-item"><span class="hot-rank">2</span><span class="hot-name">春限定·樱花树下</span><span class="hot-score">9.8k</span></div>
+            <div class="hot-item"><span class="hot-rank">3</span><span class="hot-name">午后胶片·阳台篇 4K修复</span><span class="hot-score">8.6k</span></div>
+            <div class="hot-item"><span class="hot-rank">4</span><span class="hot-name">午后胶片·天台黄昏篇</span><span class="hot-score">7.7k</span></div>
+            <div class="hot-item"><span class="hot-rank">5</span><span class="hot-name">冬限定·雪后庭院</span><span class="hot-score">7.2k</span></div>
+            <div class="hot-item"><span class="hot-rank">6</span><span class="hot-name">书房私服·第3集</span><span class="hot-score">6.4k</span></div>
+            <div class="hot-item"><span class="hot-rank">7</span><span class="hot-name">私服日常·厨房早餐</span><span class="hot-score">5.3k</span></div>
+            <div class="hot-item"><span class="hot-rank">8</span><span class="hot-name">银杏外景·幕后直击</span><span class="hot-score">4.9k</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>📅 近期更新</h3>
+          <div class="sidebar-update">
+            <div class="sidebar-update-item"><strong>11月7日</strong> 阳台篇4K修复版</div>
+            <div class="sidebar-update-item"><strong>11月5日</strong> 银杏外景正片+花絮</div>
+            <div class="sidebar-update-item"><strong>11月3日</strong> 书房私服第3集</div>
+            <div class="sidebar-update-item"><strong>10月28日</strong> 银杏外景拍摄日</div>
+            <div class="sidebar-update-item"><strong>10月18日</strong> 天台黄昏篇上线</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>📌 快速导航</h3>
+          <div class="rec-tags" style="gap:6px;">
+            <a href="/#overview" class="rec-tag" style="padding:6px 12px;font-size:12px;">领域概览</a>
+            <a href="/#featured" class="rec-tag" style="padding:6px 12px;font-size:12px;">精选作品</a>
+            <a href="/#deep-dive" class="rec-tag" style="padding:6px 12px;font-size:12px;">深度解析</a>
+            <a href="/#guide" class="rec-tag" style="padding:6px 12px;font-size:12px;">观看指南</a>
+            <a href="/#faq" class="rec-tag" style="padding:6px 12px;font-size:12px;">常见问答</a>
+            <a href="/#comments" class="rec-tag" style="padding:6px 12px;font-size:12px;">观众评论</a>
+            <a href="/#news" class="rec-tag" style="padding:6px 12px;font-size:12px;">相关资讯</a>
+            <a href="/#timeline" class="rec-tag" style="padding:6px 12px;font-size:12px;">时间线</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>完具酱酱m写真视频全集</h3>
+          <p>收录2025年8月至2026年11月间的系列作品，涵盖午后胶片、季节限定、私服日常三条主线，含4K修复版本与幕后花絮。更新节奏跟随拍摄周期，平均每两周新增一个条目。</p>
+        </div>
+        <div class="footer-col">
+          <h4>作品分类</h4>
+          <ul>
+            <li><a href="/#featured">午后胶片系列</a></li>
+            <li><a href="/#featured">季节限定外拍</a></li>
+            <li><a href="/#featured">私服日常系列</a></li>
+            <li><a href="/#featured">4K修复版本</a></li>
+            <li><a href="/#featured">幕后花絮</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>内容栏目</h4>
+          <ul>
+            <li><a href="/#updates">最新更新</a></li>
+            <li><a href="/#deep-dive">深度解析</a></li>
+            <li><a href="/#guide">观看指南</a></li>
+            <li><a href="/#faq">常见问答</a></li>
+            <li><a href="/#comments">观众评论</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>互动与说明</h4>
+          <ul>
+            <li><a href="/#interact">投稿与交流</a></li>
+            <li><a href="/#timeline">更新时间线</a></li>
+            <li><a href="/#news">相关资讯</a></li>
+            <li><a href="/#recommend">延伸搜索</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 完具酱酱m写真视频全集 · 内容整理与索引</span>
+        <span>页面更新于2026年11月8日 · 条目信息以实际发布为准</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "完具酱酱m写真视频全集",
+    "description": "完具酱酱m写真视频全集收录写真视频作品、拍摄花絮与主题分类，按年份和风格整理。提供作品看点、更新动态、消费路径与观众评论。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "「午后胶片」系列的胶片感是前期拍的还是后期加的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "前期拍摄使用的是数码相机，胶片模拟来自后期调色。阳台篇原始版本的颗粒是全画面统一添加的，11月7日的4K修复版改为高光和中间调区域局部添加，暗部做了降噪。调色参考的是Fujifilm Pro 400H的色罩特征。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "银杏外景篇里有一段声音突然变干净了，是修过吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "正片第4分12秒附近的环境音做了替换。当天风大，收音麦的防风毛套没有装稳，录到了摩擦声。正片用了环境音铺底替换原始同期声。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "书房私服三集的色温为什么不一样？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "第1集暖调，第2集中性偏暖，第3集偏冷。变化来自反光板距离和后期白平衡调整。第3集反光板离人物更近，面部光比缩小，色温被拉到5200K左右。三集拍摄时段也不同。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "季节限定系列下一集会拍什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "季节系列已覆盖春、夏、秋、冬四个节点。11月8日之前没有发布下一集预告。从拍摄节奏推断，冬季条目可能集中在12月中下旬，雪后场景概率较高。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "「私服日常」和「书房私服」有什么区别？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "「私服日常」场景包含厨房、卧室、玄关等，单集8—12分钟。「书房私服」9月新开，场景固定在书房，以窗光和固定机位为主，更新更规律。两个系列拍摄时段也不同。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "4K修复版和原始版本哪个更值得看？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "修复版在窗边逆光段落的暗部细节明显更好，墙纸纹理和暗部层次都能看到；但颗粒均匀性不如原始版本，暗部降噪后胶片感减弱。对画质敏感的观众适合修复版，在意颗粒质感的选原始版本。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    (function() {
+      // 移动端菜单
+      var hamburger = document.getElementById('hamburgerBtn');
+      var overlay = document.getElementById('mobileOverlay');
+      var panel = document.getElementById('mobilePanel');
+      var closeBtn = document.getElementById('mobileClose');
+
+      function openMenu() {
+        overlay.classList.add('active');
+        panel.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        overlay.classList.remove('active');
+        panel.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
+      panel.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+
+      // 回到顶部
+      var backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索筛选
+      var searchInput = document.getElementById('searchInput');
+      var searchBtn = document.getElementById('searchBtn');
+      var cards = document.querySelectorAll('#cardGrid .content-card');
+      var noResult = document.getElementById('noResult');
+
+      function performSearch() {
+        var query = searchInput.value.trim().toLowerCase();
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+          var keywords = card.getAttribute('data-keywords') || '';
+          var title = card.querySelector('.card-title') ? card.querySelector('.card-title').textContent.toLowerCase() : '';
+          var desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent.toLowerCase() : '';
+          var tags = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent.toLowerCase() : '';
+          var combined = keywords + ' ' + title + ' ' + desc + ' ' + tags;
+
+          if (query === '' || combined.indexOf(query) !== -1) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResult.classList.remove('hidden');
+        } else {
+          noResult.classList.add('hidden');
+        }
+      }
+
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('input', performSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch();
+        }
+      });
+
+      // 清理搜索框
+      searchInput.addEventListener('search', function() {
+        if (searchInput.value === '') {
+          performSearch();
+        }
+      });
+    })();
+  </script>
+</body>
+      </html>
